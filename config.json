@@ -1,0 +1,69 @@
+{
+  "NewKey": {
+    "NewKey": [
+      
+    ]
+  },
+  "home": {
+    "channel": "web_veewo_home"
+  },
+  "game": {
+    "promo": "web_veewo_home",
+    "categories": [
+      {
+        "name": "Puzzle Games",
+        "channel": "web_category_puzzle"
+      },
+      {
+        "name": "Stylized Games",
+        "channel": "web_category_stylized"
+      },
+      {
+        "name": "Casual Games",
+        "channel": "web_category_casual"
+      },
+      {
+        "name": "Crazy Games",
+        "channel": "web_category_crazy"
+      },
+      {
+        "name": "Dummy Games",
+        "channel": "web_category_dummy"
+      }
+    ]
+  },
+  "about": {
+    "des": {
+      "en": "Our journey began with a love for games that blossomed into complete devotion. \nWe are a small team with a big vision: to provide players with a wonderful experience through stylized art and original gameplay. \nOur studio grew and established its presence on the App Store and Google Play with titles such as Dark Slash: Hero, 1024, and Just Get 10 -- which received praise from millions of players worldwide. \nSince then, we’ve held onto our design philosophy and have continued to make engaging games for all.",
+      "cn": "因为对游戏的热爱，我们踏上了寻梦之路。\n\nVeewo是一个特别的团队，致力于创造美丽有趣的游戏。我们追求独特的艺术风格和创新的玩法，并给玩家带来美妙的游戏体验。\n\n游戏对于我们而言不仅仅是工作，更是生命中不可或缺的一部分。我们专注于游戏的核心乐趣，并希望在艺术性上有更多的表达。\n\n我们有数款游戏被Apple和Google推荐，比如暗黑斩：英魂，1024，合到十，并在全球获得大量用户的喜爱。\n\n我们将坚持自己的设计哲学，给玩家不断的提供高品质游戏。"
+    }
+  },
+  "jobs": {
+    "des": {
+      "en": "Veewo team is full of creativity and dreams.\nWe love music, movies and animations because these are the sources of our inspiration.\nAll of our members believe that interests and passion lead to outstanding games. We need more friends who have the same faith to join us to create more amazing things.\nIf you are interested, just contact us.",
+      "cn": "这是一个充满活力和梦想的团队。\n\n音乐、电影和动画都是我们灵感的源泉，我们认为要只有快乐的心态才能做出优秀的产品。\n\n在浮躁的环境里静下心来认真做游戏，这就是veewo不变的态度。\n\n我们希望能有更多优秀的朋友加入这趟美丽旅途，一起创造令人惊叹的游戏。\n\n若你曾怀有梦想，那么就不要再等待。\n\n加入我们吧。"
+    },
+    "positions": [
+      {
+        "icon": "static/image/job_icon_intern.png",
+        "title": "Intern Designer /设计实习生",
+        "des": "职责描述：\n移动游戏用户界面设计；参与到整个游戏创意和美术制作过程\n\n职位要求：\n1.热爱游戏，具有丰富的想象力和创造力；\n2.快速的学习能力，不局限于某种风格；\n\n[ 我们需要你 ]\n1.热爱游戏，对自身的工作保持热爱与激情\n2.性格好，玩得开，能够融入我们并可以再短时间内与大家相处融洽\n3.团队意识强，懂得合作精神\n4.既要有良好的沟通能力，又要有自己的独立见解\n\n[ 你的回报 ]\n1.根据你的能力，提供给你满意的薪酬，具体面谈\n2.五险一金正规福利,项目奖金，正常双休\n2.在帝都的别墅办公,提供极其舒适的家一般的工作环境，零食、饮料、刊物一应俱全\n3.每天都有阿姨精心烹制的营养工作餐保证你的健康\n4.陪伴你工作的两只慵懒的猫，和一群欢（dou）乐（bi）的小伙伴\n5.飞速的成长环境，广阔的工作前景\n\n应聘者请投递简历邮件发送至：hr@veewo.com"
+      },
+      {
+        "icon": "static/image/job_icon_art.png",
+        "title": "Senior Game Artist /高级游戏UI设计师",
+        "des": "高级游戏界面设计师\n\n职责描述：\n移动游戏用户界面设计；部分游戏角色的美术设定\n\n职位要求：\n1.热爱游戏，具有丰富的想象力和创造力；\n2.多年用户界面设计经验，扎实的手绘功底；\n3.快速的学习能力，不局限于某种风格；\n4. 有成熟的移动游戏设计作品；\n5.了解动画原理并能制作简单动态效果的将特别优先；\n\n[ 我们需要你 ]\n1.热爱游戏，对自身的工作保持热爱与激情\n2.性格好，玩得开，能够融入我们并可以再短时间内与大家相处融洽\n3.团队意识强，懂得合作精神\n4.既要有良好的沟通能力，又要有自己的独立见解\n\n[ 你的回报 ]\n1.根据你的能力，提供给你满意的薪酬，具体面谈\n2.五险一金正规福利,项目奖金，正常双休\n2.在帝都的别墅办公,提供极其舒适的家一般的工作环境，零食、饮料、刊物一应俱全\n3.每天都有阿姨精心烹制的营养工作餐保证你的健康\n4.陪伴你工作的两只慵懒的猫，和一群欢（dou）乐（bi）的小伙伴\n5.飞速的成长环境，广阔的工作前景\n\n应聘者请投递简历邮件发送至：hr@veewo.com\n"
+      },
+      {
+        "icon": "static/image/job_icon_dev.png",
+        "title": "Cocos2d-x Engineer /Cocos2d游戏开发工程师",
+        "des": "职责描述：\n1、负责 android/iOS 平台下的游戏开发\n2、根据需求接入SDK、编写或修改游戏代码\n\n职位要求：\n1、一年以上 cocos2d-x 开发经验；\n2、两年以上游戏开发经验，能力突出者可以放宽；\n3、对软件产品有强烈的责任心，对移动游戏行业充满激情；\n4、具备良好的沟通能力和团队合作精神；\n\n[ 我们需要你 ]\n1.热爱游戏，对自身的工作保持热爱与激情\n2.性格好，玩得开，能够融入我们并可以再短时间内与大家相处融洽\n3.团队意识强，懂得合作精神\n4.既要有良好的沟通能力，又要有自己的独立见解\n\n[ 你的回报 ]\n1.根据你的能力，提供给你满意的薪酬，具体面谈\n2.五险一金正规福利,项目奖金，正常双休\n2.在帝都的别墅办公,提供极其舒适的家一般的工作环境，零食、饮料、刊物一应俱全\n3.每天都有阿姨精心烹制的营养工作餐保证你的健康\n4.陪伴你工作的两只慵懒的猫，和一群欢（dou）乐（bi）的小伙伴\n5.飞速的成长环境，广阔的工作前景"
+      },
+      {
+        "icon": "static/image/job_icon_sfx.png",
+        "title": "Game SFX designer /游戏音效设计师",
+        "des": "职责描述：\n1.负责游戏中的音效和音乐创作\n2.有效地监督及控制各类游戏项目的声效质量；\n3.负责游戏音频的测试及调整；\n\n职位要求：\n1.热爱游戏，具有丰富的想象力和创造力；\n2.熟练操作相关的音效设计工具；\n3.熟悉声音特效的制作与处理；\n4.拥有较深入的音乐理论基础，对各类型风格音乐有一定的把握与了解；\n5.具有良好的音乐制作技能，可以独立制作各种风格的乐曲；\n6.对于游戏开发有高度热情，熟悉游戏基本常识，对游戏的音乐音效有一定认知\n\n[ 我们需要你 ]\n1.热爱游戏，对自身的工作保持热爱与激情\n2.性格好，玩得开，能够融入我们并可以再短时间内与大家相处融洽\n3.团队意识强，懂得合作精神\n4.既要有良好的沟通能力，又要有自己的独立见解\n\n[ 你的回报 ]\n1.根据你的能力，提供给你满意的薪酬，具体面谈\n2.五险一金正规福利,项目奖金，正常双休\n2.在帝都的别墅办公,提供极其舒适的家一般的工作环境，零食、饮料、刊物一应俱全\n3.每天都有阿姨精心烹制的营养工作餐保证你的健康\n4.陪伴你工作的两只慵懒的猫，和一群欢（dou）乐（bi）的小伙伴\n5.飞速的成长环境，广阔的工作前景\n\n应聘者请投递简历邮件发送至：hr@veewo.com"
+      }
+    ]
+  }
+}

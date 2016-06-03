@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Cocos2d-html5 Hello World test</title>
+	<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0,minimal-ui" name="viewport" />
+	<meta content=”telephone=no,email=no” name=”format-detection” />
+	<link rel="icon" type="image/GIF" href="res/favicon.ico"/>
+	<meta name="apple-mobile-web-app-capable" content="yes"/>
+	<meta name="full-screen" content="yes"/>
+	<meta name="screen-orientation" content="portrait"/>
+	<meta name="x5-fullscreen" content="true"/>
+	<meta name="360-fullscreen" content="true"/>
+	<style>
+		body, canvas, div {
+			-moz-user-select: none;
+			-webkit-user-select: none;
+			-ms-user-select: none;
+			-khtml-user-select: none;
+			-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+			font-family: "Helvetica Neue";
+			font-color: #a67471;
+			color: #a67471;
+		}
+		.container {
+			margin:0px auto;
+			max-width: 800px;
+		}
+		.share {
+			width:240px;
+			padding: 10px;
+		}
+		.maskBanner {
+			width : 100%;
+			display: none;
+			background-color: rgba(1, 1, 1, 0.5);
+			position: absolute;
+			top: 0px;
+			left: 0px;
+		}
+		.maskFull {
+			width : 100%;
+			height : 100%;
+			display: none;
+			background-color: rgba(1, 1, 1, 0.5);
+			position: absolute;
+			top: 0px;
+			left: 0px;
+		}
+		.shareButton {
+			padding: 2px;
+		}
+		.title {
+			font-size: 1em;
+			padding: 0px;
+			margin:0px;
+			margin-top: 10px;
+			color: #FFFFFF;
+			font-weight: bold;
+		}
+		.container>.content{
+			margin: 0px 1px;
+		}
+		.center {
+			margin:0px auto;
+			text-align: center;
+		}
+		.left {
+			padding: 30px 0px;
+			width : 48%;
+			float: left;
+		}
+		.right {
+			padding: 30px 0px;
+			width : 48%;
+			height: 100px;
+			float: right;
+		}
+		.downloadButton {
+			width : 100%;
+			max-width: 400px;
+			margin-bottom: 10px;
+		}
+		.seperator {
+			height:1px;
+			width:100%;
+			background:#a67471;
+			overflow:hidden;
+			margin: 30px 0px;
+		}
+		.downloadLink {
+			color:#a67471;
+			font-weight: bold;
+			padding: 10px;
+		}
+		.normalLink {
+			color:#a67471;
+		}
+		.footer>p {
+			margin: 5px;
+		}
+		.footer {
+			padding-bottom: 100px;
+		}
+		#imgMessage {
+			position: absolute;
+			top: 0px;
+			right : 0px;
+		}
+	</style>
+	<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+	<script type="text/javascript">stLight.options({publisher: "175a31b5-a6a3-44a9-ab2c-e919e2465b76", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script>
+	<script type='text/javascript' src='https://cdn.firebase.com/v0/firebase.js'></script>
+</head>
+<body style="padding:0; margin: 0; background: #fffbea;">
+<div>
+	<a href="javascript:GetRequest();"><h1>Test Link</h1></a>
+</div>
+
+<!--<canvas id="gameCanvas" width="552" height="720" class="center"></canvas>-->
+<div class="container">
+	<div>
+		<p class="content"><strong>HOW TO PLAY :</strong>Tap the adjacen titles with same number, they will pop up. Tap again, they will merge in the position you tap. Try to get a 10!</p>
+	</div>
+	<div class="seperator"></div>
+	<div id="appstore">
+		<p class="center"><strong>GET FULL VERSION APP FOR FREE!</strong></p>
+		<div class="left">
+			<div class="center">
+				<img class="downloadButton" src="res/btn_apple.png"/>
+				<a class="downloadLink" href="#appstore">App Store</a>
+			</div>
+		</div>
+		<div class="right">
+			<div class="center">
+				<img class="downloadButton" src="res/btn_google.png"/>
+				<a class="downloadLink" href="#appstore">Google Play</a>
+			</div>
+		</div>
+	</div>
+	<div class="seperator"></div>
+	<div class="center content footer">
+		<p>Made by <a class="normalLink" href="http://www.veewo.com">Veewo Game</a>.</p>
+		<p>Follow us on </p>
+		<p><a class="normalLink" href="http://www.veewo.com">Twitter@JustGet10</a></p>
+		<p><a class="normalLink" href="http://www.veewo.com">Facebook/JustGet10</a></p>
+	</div>
+</div>
+<div class="maskBanner">
+	<div class="center" style="width:240px;">
+		<p class="title" >SELECT SHARE TO:</p>
+	</div>
+	<div id="share" class="center share">
+		<span class='st_facebook_large shareButton' displayText='Facebook'></span>
+		<span class='st_twitter_large shareButton' displayText='Tweet'></span>
+		<span class='st_sina_large shareButton' displayText='Sina'></span>
+		<span class='st_tumblr_large shareButton' displayText='Tumblr'></span>
+		<span class='st_googleplus_large shareButton' displayText='Google +'></span>
+	</div>
+</div>
+<div class="maskFull" id="divMessage">
+	<img id="imgMessage">
+</div>
+
+<!--<script src="frameworks/cocos2d-html5/CCBoot.js"></script>-->
+<!--<script src="main.js"></script>-->
+<script type="text/javascript">
+	function openURL(url) {
+
+	}
+	function share() {
+
+	}
+	function showImg(path) {
+		var ele = document.getElementById("imgMessage");
+		ele.setAttribute("src", path);
+		var ele = document.getElementById("divMessage");
+		ele.setAttribute("style", "display:block;");
+	}
+	function hideImg() {
+		var ele = document.getElementById("divMessage");
+		ele.setAttribute("style", "display:none;");
+	}
+	var rootRef = 'https://yop-dev.firebaseio.com/pop10/data/';
+	function pushData(time,data) {
+		var dataRef = new Firebase(rootRef + time);
+		dataRef.push(
+				data,
+				function(error) {
+					if(!error) {
+						console.log('发送成功');
+					} else {
+						console.log('发送失败，请稍后再试。');
+					}
+				}
+		);
+	}
+
+	function GetRequest() {
+		var url = location.search; //获取url中"?"符后的字串
+		var theRequest = new Object();
+		if (url.indexOf("?") != -1) {
+			var str = url.substr(1);
+			strs = str.split("&");
+			for(var i = 0; i < strs.length; i ++) {
+				theRequest[strs[i].split("=")[0]]=decodeURI(strs[i].split("=")[1]).replace('/','');
+			}
+		}
+		if (theRequest.date && theRequest.id) {
+			window.location.href = "get10://veewo.com/?data="+theRequest.date + "_" + theRequest.id;
+		}
+	}
+
+	window.onload = function(){
+		GetRequest();
+	};
+</script>
+</body>
+</html>

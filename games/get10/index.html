@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Just Get 10 | Veewo</title>
+	<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0,minimal-ui" name="viewport" />
+	<meta content=”telephone=no,email=no” name=”format-detection” />
+    <link rel="shortcut icon" href="http://www.veewo.com/games/get10/res/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon-precomposed" href="http://www.veewo.com/games/get10/res/weixin_icon.jpg" />
+	<meta name="apple-mobile-web-app-capable" content="yes"/>
+	<meta name="full-screen" content="yes"/>
+	<meta name="screen-orientation" content="portrait"/>
+	<meta name="x5-fullscreen" content="true"/>
+	<meta name="360-fullscreen" content="true"/>
+	<!-- seo -->
+	<meta name="description" content="Veewo Studio">
+	<meta name="author" content="veewo">
+	<meta name="keywords" content="get10">
+	<!-- /seo -->
+	<!-- iTunes -->
+	<meta name="apple-itunes-app" content="app-id=933122979">
+	<!-- /iTunes -->
+	<style>
+		body, canvas, div {
+			-moz-user-select: none;
+			-webkit-user-select: none;
+			-ms-user-select: none;
+			-khtml-user-select: none;
+			-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+			font-family: "Helvetica Neue";
+			font-color: #a67471;
+			color: #a67471;
+		}
+		.container {
+			margin:0px auto;
+			max-width: 800px;
+		}
+		.share {
+			width:240px;
+			padding: 10px;
+		}
+		.maskBanner {
+			width : 100%;
+			display: none;
+			background-color: #FFFFFF;
+			position: absolute;
+			top: 0px;
+			left: 0px;
+		}
+		.maskFull {
+			width : 100%;
+			height : 100%;
+			display: none;
+            background-color: rgba(0, 0, 0, 0.85);
+			position: absolute;
+			top: 0px;
+			left: 0px;
+		}
+		.shareButton {
+			padding: 2px;
+		}
+		.title {
+			font-size: 1em;
+			padding: 0px;
+			margin:0px;
+			margin-top: 10px;
+			color: #FFFFFF;
+			font-weight: bold;
+		}
+		.container>.content{
+			margin: 0px 1px;
+		}
+		.center {
+			margin:0px auto;
+			text-align: center;
+		}
+		.left {
+			padding: 30px 0px;
+			width : 48%;
+			float: left;
+		}
+		.right {
+			padding: 30px 0px;
+			width : 48%;
+			height: 100px;
+			float: right;
+		}
+		.downloadButton {
+			width : 100%;
+			max-width: 400px;
+			margin-bottom: 10px;
+		}
+		.seperator {
+			height:1px;
+			width:100%;
+			background:#a67471;
+			overflow:hidden;
+			margin: 30px 0px;
+		}
+		.downloadLink {
+			color:#a67471;
+			font-weight: bold;
+			padding: 10px;
+		}
+		.normalLink {
+			color:#a67471;
+		}
+		.footer>p {
+			margin: 5px;
+		}
+		.footer {
+			padding-bottom: 100px;
+		}
+		#imgMessage {
+			position: absolute;
+			top: 0px;
+			right : 0px;
+		}
+        .btnClose {
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            padding: 10px;
+        }
+	</style>
+    <script type="text/javascript" src="http://www.veewo.com/games/get10/res/WeixinApi.js"></script>
+	<!--<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>-->
+	<!--<script type="text/javascript">stLight.options({publisher: "175a31b5-a6a3-44a9-ab2c-e919e2465b76", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script>-->
+</head>
+<body style="padding:0; margin: 0; background: #fffbea;">
+<canvas id="gameCanvas" width="552" height="720" class="center"></canvas>
+<div class="container">
+	<div>
+		<p class="content"><strong>HOW TO PLAY :</strong>Tap the adjacent tiles with same number, and they will pop up. Tap again, they will merge in the position you tap. Try to get 10, or even higher!</p>
+	</div>
+	<div class="seperator"></div>
+	<div id="appstore">
+		<p class="center"><strong>GET FULL VERSION APP FOR FREE!</strong></p>
+		<div class="left">
+			<div class="center">
+				<img class="downloadButton" src="res/btn_apple.png" onclick=downLoad(1) />
+				<a class="downloadLink" href="javascript:downLoad(1)">App Store</a>
+			</div>
+		</div>
+		<div class="right">
+			<div class="center">
+				<img class="downloadButton" src="res/btn_google.png" onclick=downLoad(2) />
+				<a class="downloadLink" href="javascript:downLoad(2);">Google Play</a>
+			</div>
+		</div>
+	</div>
+	<div class="seperator"></div>
+	<div class="center content footer">
+		<p>Made by <a class="normalLink" href="http://veewogames.cn">Veewo Game</a>.</p>
+		<p>Follow us on </p>
+		<p><a class="normalLink" href="http://veewogames.cn">Twitter@JustGet10</a></p>
+		<p><a class="normalLink" href="http://veewogames.cn">Facebook/JustGet10</a></p>
+	</div>
+</div>
+<div class="maskBanner" id="share">
+    <div class="center" style="width:240px;">
+        <p class="title" style="color:#666" >SELECT SHARE TO:</p>
+    </div>
+    <div class="center share">
+        <img src="res/btn_close.png" class="btnClose" onclick=hideWidget()>
+        <div class="bshare-custom icon-medium-plus">
+            <a title="分享到Facebook" class="bshare-facebook"></a>
+            <a title="分享到Twitter" class="bshare-twitter"></a>
+            <a title="分享到Google+" class="bshare-gplus" href="javascript:void(0);"></a>
+            <a title="分享到新浪微博" class="bshare-sinaminiblog"></a>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/buttonLite.js#style=-1&amp;uuid=9b9887e4-118b-49f3-81c6-e108737fcedd&amp;pophcol=2&amp;lang=zh"></script>
+<script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/bshareC0.js"></script>
+
+<div class="maskFull" id="divMessage" onclick=hideImg()>
+	<img id="imgMessage" style="max-width: 100%;">
+</div>
+
+
+<script src="game.min.js"></script>
+<script type="text/javascript">
+
+	function openURL(url) {
+        window.open(url);
+	}
+	function share(msg) {
+        if (typeof WeixinJSBridge == "undefined") {
+            showWidget(msg);
+        } else {
+            showImg("res/weixin_share.png");
+        }
+	}
+
+    function downLoad(type){
+        //type = 3 (game download button
+        // type = 1 iOS
+        // type = 2 android
+        if (typeof WeixinJSBridge == "undefined") {
+            if (type == 0)  window.scrollBy(0, 720);
+            else if(type == 1) {
+				window.location.href = "http://lnk8.cn/ooow50";
+			}
+			else if(type == 2) {
+				window.location.href = "http://lnk8.cn/VxJVJ9";
+			}
+        } else {
+            window.scrollTo(0, 0);
+            showImg("res/weixin_download.png");
+        }
+    }
+
+	function showImg(path) {
+		var ele = document.getElementById("imgMessage");
+		ele.setAttribute("src", path);
+		var ele = document.getElementById("divMessage");
+		ele.setAttribute("style", "display:block;");
+	}
+	function hideImg() {
+		var ele = document.getElementById("divMessage");
+		ele.setAttribute("style", "display:none;");
+	}
+    function showWidget(msg) {
+        bShare.addEntry({
+            title: "Just Get 10",
+            url: "http://veewo.com/games/get10/",
+            summary: msg,
+            pic: "http://www.veewo.com/games/get10/res/weixin_icon.jpg"
+        });
+        var ele = document.getElementById("share");
+        ele.setAttribute("style", "display:block;");
+//        summary: "New challenge from the creator of 2048! Only 10% people can win this game! Play for free!",
+    }
+    function hideWidget() {
+        var ele = document.getElementById("share");
+        ele.setAttribute("style", "display:none;");
+    }
+	window.onload = function(){
+		setTimeout(scrollTo,0,0,0);
+	};
+    WeixinApi.ready(function(Api) {
+        var wxData = {
+            "appId": "", // 服务号可以填写appId
+            "imgUrl" : 'http://www.veewo.com/games/get10/res/weixin_icon.jpg',
+            "link" : 'http://www.veewo.com/games/get10/',
+            "desc" : '來自2048作者的新游戏！风靡全球的彩色数字游戏，快来挑战你的智商！',
+            "title" : "据说只有1%的人能赢"
+        };
+        var wxCallbacks = {
+            ready : function() {
+            },
+            cancel : function(resp) {
+            },
+            fail : function(resp) {
+            },
+            confirm : function(resp) {
+            },
+            all : function(resp,shareTo) {
+            }
+        };
+        Api.shareToFriend(wxData, wxCallbacks);
+        Api.shareToTimeline(wxData, wxCallbacks);
+        Api.shareToWeibo(wxData, wxCallbacks);
+        Api.generalShare(wxData,wxCallbacks);
+    });
+
+</script>
+</body>
+</html>

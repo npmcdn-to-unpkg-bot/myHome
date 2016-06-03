@@ -1,0 +1,39 @@
+{
+  "version": "15",
+  "apps": [
+    {
+      "priority": "70",
+      "alias": "phantomCat",
+      "name": [
+        "Super Phantom Cat",
+        "超级幻影喵"
+      ],
+      "index": "1",
+      "image": "http://veewo.com/promo/img/SuperCat_web_image.png",
+      "desc": [
+        "Bring you back to the old time\r\n\r\n\"How to become a super phantom cat?\"  White pacing around his floor thinking \" It must be so cool if I could become a flash cat, I could be a flash superman and save the world!\" \r\n\r\nWhite have these thoughts when he was still a little child, after he've been saved by the flash cat. \r\n\r\nOne night, the flash cat show up again. This strongest master told White that if he wanna become a super phantom cat he need to collect enough data to be transformable.\r\n\r\n\"Step into the adventure to collect data, you will become the hero to save the world eventually!\"\r\n\r\nHowever, along with the changing phantom world those creatures are undergoing inevitable changes as well. \r\n\r\n\"There are different creatures in different galaxy; No matter you are human being or vampire, you can transfer your species and races easily with the help of data! Today you are an adorable cat, other day you can be a Diva, or you can be a vampire! Nothing is impossible, as long as you got enough data!!!\r\n\r\nExplore the whole galaxy and collect all the data there to answer the most complicated philosophy question: Who we are?\r\n\r\nSuper Phantom Cat is a brand new old-style arcade game, try to find your way out in different galaxy by uncovering hidden paths and collect data to unlock new characters.\r\n\r\n\r\nBeautiful\r\nEvery galaxy is unique handcrafted world to explore\r\n\r\nEasy to play\r\nDesigned to be easy for everyone to pick up, enjoy and complete. \r\n\r\nOnly one IAP\r\nEasy for everyone to unlock level, but the only in game product can help you unlock it as well. \r\n\r\nSound\r\nAudio reacts to your manipulation of the phantom world.",
+        "经典复古游戏带你回到简单快乐的童年\r\n\r\n\"神马时候可以变成幻影喵呢？\"小白老是自己琢磨。“要是能拥有幻影猫那样的超能力就好啦，我就能拯救世界啦！” \r\n\r\n自打小时候被幻影猫拯救了之后，小白就萌生了这样的想法。\r\n\r\n一天晚上，闪电猫出现了。这个强大的导师告诉小白，要成为幻影猫，就必须拥有变化的能力。“踏上收集数据的征程，你就能最终成为拯救世界的英雄”\r\n\r\n“幻影世界里的每个神秘星系都生活着各种不同的物种，不论是人族还是动物或者吸血鬼，都可以在超自然数据作用力下轻松转变种族。今天从萌猫变萌妹纸，明天可以变吸血鬼！各种身份物种随意转化，只要你能收集足够的超自然数据，一切皆有可能！！！”\r\n\r\n超级幻影猫在传统玩法上进行了创新，通过探索隐藏小路，击败神秘小怪兽并收集数据让你在幻影世界里自由切换身份进行探险。\r\n\r\n清新的设计风格\r\n受到极简主义设计灵感，每个星系都是独一无二的设计\r\n\r\n简单易上手\r\n游戏的关卡设计让每个人都可以轻松上手，享受并且完成游戏\r\n\r\n只有一个内购\r\n游戏关卡难度合适，每个人都能成功解锁关卡，但解锁关卡内购在你遇到困难时可用。\r\n\r\n音效\r\n奇妙美丽的背景音乐，带你进入幻影世界"
+      ],
+      "banner": "http://veewo.com/promo/img/SuperCat_web_banner.png",
+      "id": "1041873285|com.veewo.procat",
+      "icon": "http://veewo.com/promo/img/SuperCat_ios_icon.png"
+    },
+    {
+      "priority": "10",
+      "alias": "get10",
+      "name": [
+        "Just Get 10",
+        "合到10"
+      ],
+      "index": "0",
+      "image": "http://veewo.com/promo/img/Get10_web_ios_image.png",
+      "desc": [
+        "Just Get 10···\r\n网页版专用",
+        "Just Get 10····\r\n网页版专用"
+      ],
+      "banner": "http://veewo.com/promo/img/get10_web_banner.png",
+      "id": "7878787|com.veewo.get10",
+      "icon": "http://veewo.com/promo/img/Get10_web_ios_icon.png"
+    }
+  ]
+}

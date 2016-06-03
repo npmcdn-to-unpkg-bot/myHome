@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en"
+    slick-uniqueid="3">
+    <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Math Freak</title>
+    <meta name="description" content="Play Math on your PC, Mac, Windows Phone or any device | A simple and addicting game can drive you crazy !">
+    <meta name="keywords" content="Freaking Math, Freaking, Math, Nguyen Luong Bang, Freaking Math online, play Freaking Math, Freaking Math on PC, Freaking Math browser, Math game, brain game">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!-- Loading Bootstrap -->
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+
+    <!-- Loading Flat UI -->
+    <link href="css/flat-ui.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="shortcut icon" href="images/favicon.ico">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body class="mc-screen-1" style="height: 361px;">
+<div class="loading"></div>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6 col-lg-push-3 player_container" style="height: 361px;">
+            <div class="screen screen-1">
+                <div class="current-score">0</div>
+                <div class="row cm-display">
+                    <div class="col-md-12">
+                        <div class="statement"></div>
+                        <div class="result"></div>
+                    </div>
+                </div>
+                <div class="row cm-controls">
+                    <div class="col-xs-6">
+                        <button class="btn btn-default btn-true">
+                            <i class="fa fa-check"></i>
+                        </button>
+                    </div>
+                    <div class="col-xs-6">
+                        <button class="btn btn-default btn-fail">
+                            <i class="fa fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="screen screen-2">
+                <div class="panel">
+                    <div class="panel-body game-over-message">
+                        <h1 class="title">Game Over</h1>
+                        <div class="msg-line">
+                            <span class="new-label">New</span>
+                            <span class="new-score">0</span>
+                        </div>
+                        <div class="msg-line">
+                            <span class="best-label">Best</span>
+                            <span class="best-score">0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="controls">
+                    <button class="btn btn-default btn-play">
+                        <i class="fa fa-play"></i>
+                    </button>
+
+                    <button class="btn btn-default btn-home">
+                        <i class="fa fa-list"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="screen screen-3 active">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="app-name">
+                            <strong>Math</strong>
+                            <span>Freak</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row controls">
+                    <div class="col-xs-6 col-xs-push-4">
+                        <button class="btn btn-default btn-boot-game">
+                            <i class="fa fa-play"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="row download-links">
+                    <div class="col-xs-10 col-xs-push-2">
+                        <a class="download-btn ios" target="_blank" href="https://itunes.apple.com/us/app/math-freak!/id857841578?ls=1&mt=8">
+                            <img src="images/applestore.png" alt="">
+                        </a>
+                        <a class="download-btn android" target="_blank" href="https://play.google.com/store/apps/details?id=com.veewo.math">
+                            <img src="images/playstore.png" alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="row social-sharing">
+                    <div class="col-xs-12">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /.container -->
+<div class="sound-container">
+    <audio src="sound/fail.mp3" class="sound-fail"></audio>
+    <audio src="sound/passed.mp3" class="sound-passed"></audio>
+    <audio src="sound/reload.mp3" class="sound-reload"></audio>
+</div>
+<script src="js/jquery-1.8.3.min.js"></script>
+<script src="js/html2canvas.min.js"></script>
+<script src="js/crazymath.js"></script>
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F8a5a2ce6f99819f54bd44b9da890e8fe' type='text/javascript'%3E%3C/script%3E"));
+$('audio').each(function(){
+    this.addEventListener(
+    'ended', 
+    function(){
+        this.load();
+    }, 
+    false)});
+</script>
+</body></html>

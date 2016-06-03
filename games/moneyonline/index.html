@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>数钱数到手抽筋</title>
+<script type="text/javascript">
+var SCORE_LIMIT = 6000;
+</script>
+<script type="text/javascript" src="./countmoney/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="./countmoney/jquery.cookie.js"></script>
+<script type="text/javascript">document.write('<script type="text/javascript" src="./countmoney/resource_loader.js?ver='+Math.random()+'"><\/script>')</script>
+<script type="text/javascript" src="./countmoney/resource_loader.js"></script>
+<link href="./countmoney/index.css?version=0.19188523408956826" rel="stylesheet">
+<script type="text/javascript" src="./countmoney/jquery.min.js"></script>
+<script type="text/javascript" src="./countmoney/server.js"></script>
+<script type="text/javascript" src="./countmoney/adSceneInGames.js"></script>
+<script type="text/javascript" src="./countmoney/game_index.js"></script>	
+<script type="text/javascript" src="./countmoney/createjs-2013.12.12.min.js"></script>
+<script type="text/javascript" src="./countmoney/qipa_app.js"></script>
+<script type="text/javascript" src="./countmoney/qipa_stage.js"></script>
+<script type="text/javascript" src="./countmoney/main.js"></script>
+<style type="text/css">
+html,body,canvas {
+margin: 0px;
+padding: 0px;
+border:none;
+text-align: center;
+background-color: black;
+}
+canvas {
+background-color: white;
+}
+.aliForPc {display:none;position:fixed;top:5px;right:5px;width:200px;height:230px;overflow:hidden;z-index:99999;}
+</style>
+</head>
+<body>
+<canvas id="stage" width="640" height="960" style="margin-top: 0px; width: 569.3333333333334px; height: 854px;">
+您的浏览器不支持html5, 请换用支持html5的浏览器。
+</canvas>
+<script language="javascript">
+ $j(document).ready(function(){
+		if(/Android|Windows Phone|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)){
+			//
+		}else{
+			$j(".aliForPc").show();
+		}
+	});
+
+		var mebtnopenurl = 'http://www.veewo.com';
+		window.shareData = {
+		        "imgUrl": "http://veewo.com/games/moneyonline/img/dog.png",
+		        "timeLineLink": "http://veewo.com/games/moneyonline/",
+		        "tTitle": "数钱数到手抽筋",
+		        "tContent": "人生最大的梦想就是数钱数到手抽筋，自从不做会计后好久没数过这么多钱了 "
+		};	
+		function goHome(){
+			window.location=mebtnopenurl;
+		}
+		function clickMore(){
+			window.location="https://itunes.apple.com/us/app/shu-qian-shu-dao-shou-chou/id911283789?l=zh&ls=1&mt=8";
+		}
+		function dp_share(x){
+			var judge = parseInt(x/10000);
+			var common = "快来数数你未来的收入有多少！";
+			switch(judge){
+			case 0:
+				window.shareData.tContent = "\uffe5" + x + "," + "你是屌丝王中王。" + common;
+				break;
+			case 1:
+				window.shareData.tContent = "\uffe5" + x + "," + "你是小白领吧？" + common;
+				break;
+			case 2:
+				window.shareData.tContent = "\uffe5" + x + "," + "你是鞋厂老板吧？" + common;
+				break;
+			case 3:
+				window.shareData.tContent = "\uffe5" + x + "," + "你是名副其实的大土豪！" + common;
+				break;
+			default:
+				window.shareData.tContent = "\uffe5" + x + "," + "你你你….肯定是个会计……" + common;
+				break;
+			}	
+		}
+		function dp_Ranking(){
+			window.location="http://www.veewo.com";
+		}
+        function cshare(){
+        	document.getElementById("share").style.display="";
+		}
+        function dshare(){
+            document.getElementById("bshare").style.display="";
+        }
+		</script>
+		<div id="share" style="display: none">
+			<img width="100%" src="./countmoney/share.png" style="position: fixed; z-index: 9999; top: 0; left: 0; display: " ontouchstart="document.getElementById(&#39;share&#39;).style.display=&#39;none&#39;;">
+		</div>
+        <div id="bshare" style="display: none">
+            <img width="100%" src="./countmoney/bshare.png" style="position: fixed; z-index: 9999; top: 0; left: 0; display: " ontouchstart="document.getElementById(&#39;share&#39;).style.display=&#39;none&#39;;">
+        </div>
+</body></html>

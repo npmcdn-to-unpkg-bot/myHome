@@ -1,0 +1,511 @@
+@font-face
+{
+    font-family: "Archive";
+    src: url('../fonts/Archive.otf') format("opentype");
+}
+
+html, body
+{
+    height: 100%;
+}
+
+body {
+    font-family: "Archive", "Lato", Helvetica, Arial, sans-serif;
+}
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+}
+
+.clearfix {
+    display: inline-block;
+}
+
+html[xmlns] .clearfix {
+    display: block;
+}
+
+* html .clearfix {
+    height: 1%;
+}
+
+body.mc-screen-1 { background: #1abc9c; }
+body.mc-screen-2 { background: #2ecc71; }
+body.mc-screen-3 { background: #3498db; }
+body.mc-screen-4 { background: #9b59b6; }
+body.mc-screen-5 { background: #34495e; }
+body.mc-screen-6 { background: #16a085; }
+body.mc-screen-7 { background: #27ae60; }
+body.mc-screen-8 { background: #2980b9; }
+body.mc-screen-9 { background: #8e44ad; }
+body.mc-screen-10 { background: #2c3e50; }
+body.mc-screen-11 { background: #f1c40f; }
+body.mc-screen-12 { background: #e67e22; }
+body.mc-screen-13 { background: #e74c3c; }
+body.mc-screen-14 { background: #f39c12; }
+body.mc-screen-15 { background: #d35400; }
+body.mc-screen-16 { background: #c0392b; }
+
+.loading {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    /* Fallback for web browsers that don't support RGBa */
+    background-color: rgb(255, 255, 255);
+    /* RGBa with 0.6 opacity */
+    background-color: rgba(255, 255, 255, 0.85);
+    /* For IE 8*/
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#5cffffff', endColorstr='#5cffffff'); /* IE */
+    height: 5px;
+    display: none;
+}
+
+.container {
+    height: 100%;
+}
+
+.player_container {
+    position: relative;
+    /*border: 1px solid gray;*/
+    height: 100%;
+}
+
+.statement {
+    margin-top: 20%;
+}
+
+.statement,  .result {
+    color: white;
+    font-size: 7em;
+    font-weight: bold;
+    text-align: center;
+    display: block;
+    line-height: 1em;
+}
+
+.current-score {
+    position: absolute;
+    font-size: 2em;
+    color: #ffffff;
+    font-weight: bold;
+    top: 0; right: 0;
+}
+
+.cm-display {
+    height: 70%;
+    /*position: relative;*/
+}
+
+.cm-controls {
+    /*position: absolute;*/
+}
+
+.cm-controls .btn {
+    width: 100%;
+}
+
+.cm-controls .fa {
+    font-size: 10em;
+}
+
+.cm-controls .btn-true {
+    float: right;
+}
+
+.cm-controls .btn-fail {
+    float: left;
+}
+
+.cm-controls .btn-true .fa {
+    color: #3598dc;
+}
+
+.cm-controls .btn-fail .fa {
+    color: #ff6563;
+}
+
+.cm-controls .btn-default{
+    width: 200px;
+    height: 200px;
+    background: white;
+}
+
+.cm-controls .btn-true:hover,
+.cm-controls .btn-true.active {
+    background: #3598dc;
+}
+
+.cm-controls .btn-true:hover .fa,
+.cm-controls .btn-true.active .fa{
+    color: white;
+}
+
+.cm-controls .btn-fail:hover,
+.cm-controls .btn-fail.active{
+    background: #ff6563;
+}
+
+.cm-controls .btn-fail:hover .fa,
+.cm-controls .btn-fail.active .fa{
+    color: white;
+}
+
+/* SCREEN STYLE */
+.screen {
+    display: none;
+    position: relative;
+    height: 100%;
+}
+
+.screen.active {
+    display: block;
+}
+
+.screen-2 {
+    position: absolute;
+    width: 96%;
+    top: 0;
+}
+
+.screen-2 .panel {
+    background: #092d3d;
+    margin-top: 10%;
+    width: 70%;
+    margin-left: 15%;
+}
+
+.screen-2 .game-over-message .title{
+    color: white;
+    font-size: 2.7em;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.screen-2 .game-over-message .new-label, .screen-2 .game-over-message .best-label{
+    text-align: center;
+    color: #acb8b8;
+    font-weight: bold;
+}
+
+.screen-2 .game-over-message .new-score, .screen-2 .game-over-message .best-score {
+    text-align: center;
+    color: #fff;
+    font-weight: bolder;
+    font-size: 1.5em;
+    padding-left: 5px;
+}
+
+.screen-2 .game-over-message .msg-line {
+    margin: 0 auto;
+    width: 130px;
+}
+
+.screen-2 .controls {
+    width: 70%;
+    margin-left: 15%;
+}
+
+.screen-2 .btn {
+    background: white;
+    width: 45%;
+}
+
+.screen-2 .btn:hover {
+    background: #3598dc;
+}
+
+.screen-2 .btn .fa {
+    color: #3598dc;
+    font-size: 2.5em;
+}
+
+.screen-2 .btn:hover .fa {
+    color: #fff;
+}
+
+.screen-2 .btn-play {
+    margin-left: 2%;
+}
+
+.screen-2 .btn-home {
+    margin-left: 4%;
+}
+
+/* SCREEN 3 */
+.screen-3 .app-name {
+    color: white;
+    font-size: 3em;
+}
+
+.screen-3 .btn {
+    background: white;
+    width: 55%;
+}
+
+.screen-3 .btn:hover {
+    background: #3598dc;
+}
+
+.screen-3 .btn .fa {
+    color: #3598dc;
+    font-size: 2.5em;
+}
+
+.screen-3 .btn:hover .fa {
+    color: #fff;
+}
+
+.screen-3 .app-name {
+    text-align: center;
+    margin-top: 30%;
+}
+
+.screen-3 .controls {
+    margin-top: 5%;
+}
+
+.screen-3 .download-links {
+    margin-top: 10%;
+}
+
+.screen-3 .download-btn {
+    display: inline-block;
+    width: 40%;
+}
+
+.screen-3 .download-btn img {
+    width: 100%;
+}
+
+.screen-3 .ios {
+    margin-right: 1%;
+}
+
+.screen-3 .social-sharing {
+    height: 100px;
+    /*background: white;*/
+    margin-top: 2%;
+}
+
+/*Sounds*/
+.sound-container {
+    display: none;
+}
+
+/*ADS*/
+
+.adsbygoogle {
+    display: none;
+}
+
+.ga-ads {
+    width: 320px;
+    height: 100px;
+    margin: 0 auto;
+}
+
+/*.cm-controls .btn-default:hover,*/
+/*.cm-controls .btn-default:focus,*/
+/*.cm-controls .btn-default:active,*/
+/*.cm-controls .btn-default.active,*/
+/*.cm-controls .open .dropdown-toggle.btn-default {*/
+    /*background: #fff;*/
+/*}*/
+
+/* Smartphones (landscape) ----------- */
+@media only screen
+and (min-width : 321px) {
+    .cm-controls .btn-default{
+        width: 100%;
+        height: 20%;
+    }
+
+    .cm-controls .fa {
+        font-size: 5em;
+    }
+
+    .statement, .result {
+        font-size: 3em;
+    }
+
+    .statement {
+        margin-top: 5%;
+    }
+
+    .screen-2 .panel {
+        margin-top: 20%;
+    }
+
+    .screen-2 .game-over-message .title {
+        font-size: 1em;
+    }
+
+    .screen-2 .game-over-message .new-label, .screen-2 .game-over-message .best-label {
+        font-size: .7em;
+    }
+
+    .screen-2 .game-over-message .new-score, .screen-2 .game-over-message .best-score {
+        font-size: .7em;
+    }
+
+    .screen-3 .app-name {
+        margin-top: 2%;
+    }
+
+    .screen-3 .controls {
+        margin-top: 2%;
+    }
+
+    .screen-3 .download-links {
+        margin-top: 2%;
+    }
+}
+
+/* Smartphones (portrait) ----------- */
+@media only screen
+and (max-width : 320px) {
+    .cm-controls .btn-default{
+        width: 140px;
+        height: 140px;
+    }
+
+    .cm-controls .fa {
+        font-size: 7em;
+    }
+
+    .statement, .result {
+        font-size: 5em;
+    }
+
+    .screen-2 .panel {
+        margin-top: 40%;
+    }
+}
+
+/* iPads (portrait) ----------- */
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px)
+and (orientation : portrait) {
+    .cm-display {
+        height: 60%;
+    }
+    .cm-controls .btn-default{
+        width: 100%;
+        height: 300px;
+    }
+
+    .cm-controls .fa {
+        font-size: 12em;
+    }
+
+    .statement, .result {
+        font-size: 9em;
+    }
+
+    .statement {
+        padding-top: .5em;
+    }
+
+    .current-score {
+        font-size: 3em;
+    }
+
+    .screen-2 .panel {
+        margin-top: 50%;
+    }
+}
+
+/* iPads (landscape) ----------- */
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px)
+and (orientation : landscape) {
+    .cm-display {
+        height: 60%;
+    }
+
+    .cm-controls .btn-default{
+        width: 100%;
+        height: 230px;
+    }
+
+    .cm-controls .fa {
+        font-size: 10em;
+    }
+
+    .statement, .result {
+        font-size: 8em;
+    }
+
+    .statement {
+        padding-top: .2em;
+    }
+
+    .current-score {
+        font-size: 3em;
+    }
+
+    .screen-2 .panel {
+        margin-top: 50%;
+    }
+}
+
+/* Desktops and laptops ----------- */
+@media only screen
+and (min-width : 1224px) {
+    .fb_iframe_widget {
+        margin-left: 95px;
+    }
+
+    .statement, .result {
+        font-size: 7em;
+    }
+
+    .statement {
+        margin-top: 20%;
+    }
+
+    .cm-controls .btn-default {
+        height: 200px;
+    }
+
+    .cm-controls .fa {
+        font-size: 12em;
+    }
+
+    .screen-2 .panel {
+        margin-top: 45%;
+    }
+
+    .screen-3 .app-name {
+        margin-top: 30%;
+    }
+
+    .screen-3 .controls {
+        margin-top: 2%;
+    }
+
+    .screen-3 .download-links {
+        margin-top: 5%;
+    }
+
+    .screen-2 .game-over-message .title {
+        font-size: 2.7em;
+    }
+
+    .screen-2 .game-over-message .new-label, .screen-2 .game-over-message .best-label {
+        font-size: 1em;
+    }
+
+    .screen-2 .game-over-message .new-score, .screen-2 .game-over-message .best-score {
+        font-size: 1.2em;
+    }
+}

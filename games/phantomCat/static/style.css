@@ -1,0 +1,207 @@
+body {
+	background-color: #0080ff;
+	color : #727272;
+	margin: 0;
+}
+
+.always-fullscreen {
+	margin-left: -20px;
+	margin-right: -20px;
+}
+
+#description {
+	margin-top: 25px;
+	width: 100%;
+	max-width: 680px;
+	font-size: 1.3em;
+	margin-bottom: 50px;
+	text-align: left;
+	line-height: 25px;
+}
+
+#description > p {
+	color: #fcfcfc;
+}
+
+#mail > p {
+	color: #fcfcfc;
+}
+
+#mail {
+	margin-top: 30px;
+	width: 100%;
+	font-size: 1.3em;
+	margin-bottom: 45px;
+	font-weight: bold;
+}
+
+#appVideo {
+	width : 100%;
+	max-width : 740px;
+	max-height : 420px;
+	margin-bottom: 72px;
+}
+
+.picture-center {
+	margin-bottom : 87px;
+}
+
+.picture-get {
+	margin-bottom : 32px;
+}
+
+.picture-store {
+	margin-bottom : 22px;
+}
+
+.picture-ma {
+	margin-bottom : 58px;
+}
+
+.picture-follow {
+	margin-bottom : 4px;
+}
+
+.center {
+	margin-left : auto;
+	margin-right: auto;
+	text-align: center;
+}
+
+#countdown {
+	background-color: #26a1ff;
+	margin-top: 20px;
+	margin-bottom: 80px;
+	width: 100%;
+	max-width: 570px;
+	height: 160px;
+}
+
+#txtCountdownTitle {
+	text-align: center;
+	font-size: 1.8em;
+	color: #0058db;
+	font-weight: bold;
+	padding-top: 30px;
+	padding-bottom: 10px;
+}
+
+#txtCountdown {
+	color: #fffb91;
+	text-align: center;
+	font-size: 4.6em;
+	font-family: "Helvetica Neue",Helvetica,Arial,PingHei,yahei,"Hiragino Sans GB";
+	font-weight: bolder;
+	padding-top: 10px;
+}
+
+#form {
+	width : 100%;
+	max-width: 460px;
+	margin-top: 60px;
+}
+
+input[type="email"], textarea{
+	width : 100%;
+	background-color: #0b3dc5;
+	color: #2acff1;
+	border: 0px;
+	-webkit-border-radius: 0px;
+	border-radius: 0px;
+	-moz-border-radius: 0px;
+	font-size: 1.4em;
+	padding: 10px 20px 10px 20px;
+	margin-left: -20px;
+}
+
+.formResult {
+	width: 100%;
+	background-color: #0b3dc5;
+	color : white;
+}
+
+.formResult > div {
+	padding: 20px;
+}
+
+.formResult > div > p {
+	font-size: 1.4em;
+}
+
+input[type="email"]::-webkit-input-placeholder { /* WebKit browsers */
+	color:    #209fb9;
+}
+input[type="email"]:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+	color:    #209fb9;
+}
+input[type="email"]::-moz-placeholder { /* Mozilla Firefox 19+ */
+	color:    #209fb9;
+}
+input[type="email"]:-ms-input-placeholder { /* Internet Explorer 10+ */
+	color:    #209fb9;
+}
+
+textarea::-webkit-input-placeholder { /* WebKit browsers */
+	color:    #209fb9;
+}
+textarea:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+	color:    #209fb9;
+}
+textarea::-moz-placeholder { /* Mozilla Firefox 19+ */
+	color:    #209fb9;
+}
+textarea:-ms-input-placeholder { /* Internet Explorer 10+ */
+	color:    #209fb9;
+}
+
+#txtEmail {
+	height : 64px;
+}
+
+#txtIntro {
+	height : 140px;
+	margin-top: 20px;
+	margin-bottom: 40px;
+}
+
+.footer {
+	margin-top: 200px;
+}
+
+.footer > a > p {
+	color: white;
+}
+
+.icon-center-left {
+	align: center;
+	margin-right:5px;
+	width: 100%;
+	height: 100%;
+}
+
+.icon-center-right {
+	align: center;
+	margin-left:5px;
+	width: 100%;
+	height: 100%;
+}
+
+.footer-logo {
+	background-color: white;
+	margin-top: 40px;
+	padding: 40px;
+	margin-bottom: -100px;
+	text-align: center;
+}
+
+
+@media (max-width: 540px) {
+	#txtCountdownTitle {
+		font-size: 1.2em;
+	}
+
+	#txtCountdown {
+		font-size: 3em;
+		line-height: 1em;
+	}
+}

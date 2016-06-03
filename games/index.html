@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="utf8">
+	<title>游戏 | Veewo</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="../static/css/bootstrap.min.css" rel="stylesheet"/>
+	<link href="../static/css/bootstrap-responsive.min.css" rel="stylesheet"/>
+	<link rel="stylesheet" type="text/css" href="../static/css/style.css">
+
+	<!--[if lt IE 9]>
+	<script src="../static/script/html5.js"></script>
+	<![endif]-->
+	<!--[if IE 6]>
+	<link href="../static/css/ie6.min.css" rel="stylesheet">
+	<![endif]-->
+
+	<script type="text/javascript" src="../static/script/jquery-latest.min.js"></script>
+	<script type="text/javascript">
+		var vee = vee = vee || {};
+		function GetRequest() {
+			var url = location.search; //获取url中"?"符后的字串
+			var request = {};
+			if (url.indexOf("?") != -1) {
+				var str = url.substr(1);
+				strs = str.split("&");
+				for(var i = 0; i < strs.length; i ++) {
+					request[strs[i].split("=")[0]]=decodeURI(strs[i].split("=")[1]).replace('/','');
+				}
+			}
+			vee.request = request;
+		}
+		GetRequest();
+		if (vee.request.name) {
+			$.ajax({url: vee.request["name"] + "/index.html",
+				success: function(res){
+					window.location.replace(vee.request["name"]);
+				},
+				error : function(res){
+					$(document.body).attr("style", "");
+				}
+			});
+		}
+	</script>
+	<style>
+		body { padding: 0px; }
+	</style>
+</head>
+
+
+
+
+
+<body style="display:none">
+<div class="mainPage">
+	<div class="header">
+		<div class="logo hidden-phone" onclick=vee.goHome()></div>
+		<div class="logo-small visible-phone" onclick=vee.goHome()>
+			<img src="../static/image/logo_small.png"/>
+		</div>
+		<div class="navigator">
+			<div><a class="button" href="../">主页</a></div>
+			<div class="selected"><a class="button" href="Javascript:location.href='../games';">游戏</a></div>
+			<div><a class="button" href="../about.html">关于</a></div>
+			<div><a class="button" href="../jobs.html">工作</a></div>
+		</div>
+	</div>
+
+
+	<!--game List-->
+	<div id="divPromo" class="promo container-narrow"></div>
+	<div id="divGameList" class="gameList">
+	</div>
+
+	<!--game Detail-->
+	<div class="gameDetail container-narrow-app">
+		<div id="divGameTitle" class="seperator-small"></div>
+		<img id="imgGameBanner" class="seperator-small" src="" ></img>
+		<div id="divDownload" class="seperator" >
+			<div class="left">
+				<img id="imgAppStore" class="downloadButton" src="../static/image/btn_download_apple.png" onclick=vee.openAppStore() />
+			</div>
+			<div class="right">
+				<img id="imgGooglePlay" class="downloadButton" src="../static/image/btn_download_google.png" onclick=vee.openGooglePlay() />
+			</div>
+		</div>
+		<div id="divGameDescription" class="container-narrow-text description"></div>
+		<div class="container-narrow-app moregame">
+			<div>
+				<a href="/games">
+					<div><img alt="moregame" src="../static/image/game_btn_more.png"/>
+					</div>
+				</a>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="footer">
+		<div class="navigator-footer seperator">
+			<div><a class="button" href="../#">主页</a>&nbsp&nbsp/&nbsp&nbsp</div>
+			<div><a class="button" href="../games/">游戏</a>&nbsp&nbsp/&nbsp&nbsp</div>
+			<div><a class="button" href="../about.html">关于</a>&nbsp&nbsp/&nbsp&nbsp</div>
+			<div><a class="button" href="../jobs.html">工作</a>&nbsp&nbsp/&nbsp&nbsp</div>
+			<div><a class="button" href="../user.html">用户协议</a>&nbsp&nbsp/&nbsp&nbsp</div>
+			<div><a class="button" href="../privacy_cn.html">隐私政策</a>&nbsp&nbsp/&nbsp&nbsp</div>
+			<div><a class="button" href="../jiazhang.html">家长监护</a>&nbsp&nbsp/&nbsp&nbsp</div>
+			<div><a class="button" href="../recharge.html">充值</a>&nbsp&nbsp/&nbsp&nbsp</div>
+			<div><a class="button" href="../register.html">注册</a></div>
+		</div>		
+		<div>
+			<p>抵制不良游戏，拒绝盗版游戏，注意自我保护，谨防受骗上当，适度游戏益脑，沉迷游戏伤身，合理安排时间，享受健康生活。</p>
+			<p>厦门微沃时刻有限公司     ©2014 Veewo Game</p>
+			<p>地址：厦门市集美区集美大道1302号创业大厦1508室 电话：0592-6103797</p>
+		</div>
+		<div>
+			<a target="_blank" href="http://bcainfo.miitbeian.gov.cn/publish/query/indexFirst.action">闽ICP备16011513号</a>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="../static/script/flow.js"></script>
+	<script type="text/javascript" src="../static/script/home.js"></script>
+	<script type="text/javascript">
+		$(function () {
+			if (!vee.request.name) $(document.body).attr("style", "");
+			vee.updateGame();
+		});
+	</script>
+	<script type="text/javascript" src="../../static/script/bootstrap.min.js"></script>
+	<!--[if IE 6]>
+	<script src="../../static/script/ie6.min.js"></script>
+	<![endif]-->
+</div>
+</body>
+
+</html>

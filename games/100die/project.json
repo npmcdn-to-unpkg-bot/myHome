@@ -1,0 +1,58 @@
+{
+    "project_type": "javascript",
+
+    "debugMode" : 1,
+    "showFPS" : false,
+    "frameRate" : 60,
+    "id" : "gameCanvas",
+    "renderMode" : 2,
+    "engineDir":"frameworks/cocos2d-html5",
+
+    "modules" : ["ccbreader"],
+    
+    "jsList" : [
+    	"runtime/html5/preProcess.js",
+    	
+        "src/resource.js",
+        "src/appConfig.js",
+
+        "src/common/underscore-min.js",
+        "src/common/utils.js",
+		"src/common/class.js",
+		"src/common/audioMgr.js",
+		"src/common/callbacks.js",
+		
+
+	    "src/common/cooldown.js",
+		"src/common/popMgr.js",
+		"src/common/map.js",
+	    "src/common/flow.js",
+		"src/common/vipValues.js",
+		"src/common/gestureController.js",
+		"src/common/scoreController.js",
+		"src/common/pagingController.js",
+		"src/common/controls.js",
+
+	    "src/common/pluginAd.js",
+		"src/common/iap.js",
+		"src/common/analytics.js",
+		"src/common/promo.js",
+		"src/common/socialShare.js",
+
+	    "src/common/vee.js",
+	    "src/common/gameModule.js",
+
+        "src/app.js",
+	  	"src/globalValues.js",
+	  	"src/logo.js",
+	  	"src/eventManager.js",
+	  	"src/eleBaseRole.js",
+	  	"src/lyGameController.js",
+	  	"src/eleBarbarian.js",
+	  	"src/eleCook.js",
+	  	"src/eleWarrior.js",
+	  	"src/eleMage.js",
+	  	"src/eleDragon.js",
+        "runtime/html5/afterProcess.js"
+    ]
+}

@@ -1,0 +1,521 @@
+@font-face {
+	font-family: Aller;
+	src: url('/static/font/AllerDisplay.ttf');
+}
+
+body {
+	font-family: "Helvetica Neue",Helvetica,Arial,PingHei,yahei,"Hiragino Sans GB";
+	background-color: #eff6f9;
+	color : #727272;
+	margin: 0;
+}
+
+ul {
+	list-style: none;
+}
+
+a:link {
+    color:#727272;
+    text-decoration:none;
+}
+
+a:active {
+	color:#727272;
+	text-decoration:none;
+}
+
+a:hover {
+    color:#0090e2;
+    text-decoration:none;
+}
+
+.mainPage {
+    text-align:center;
+}
+
+.container-narrow {
+	margin: 0px auto;
+	max-width: 1000px;
+	padding: 0px 20px;
+}
+
+.container-narrow-text {
+	margin: 0px auto;
+	max-width: 800px;
+	padding: 20px 20px;
+}
+
+.container-narrow-app {
+	margin: 0px auto;
+	max-width: 600px;
+	padding: 20px 20px;
+}
+
+/*  Header  */
+
+.logo{
+    margin:0px auto;
+	padding: 0px 20px;
+    background-color: #2f9fe0;
+	background-image: url("/static/image/top.jpg");
+	background-repeat: no-repeat;
+	background-position: center;
+	height: 180px;
+}
+
+.navigator {
+	padding-top: 16px;
+	padding-bottom: 16px;
+	background-color: #FFF;
+}
+.navigator > div {
+	display: inline;
+	padding: 50px;
+}
+
+.navigator a {
+	color:#727272;
+}
+
+.navigator .selected>a{
+	color:#0090e2;
+}
+
+.navigator .button {
+	padding: 10px;
+	font-size: 1.0em;
+}
+
+/* mroegame */
+
+.moregame>div {
+	margin: 0px auto;
+	max-width: 500px;
+}
+
+.contact>div {
+	margin: 0px auto;
+	max-width: 400px;
+}
+
+.contact>div>a {
+	margin: 0px 10px;
+}
+
+
+/* footer */
+
+.navigator-footer>div {
+	display: inline;
+}
+
+.navigator-footer a {
+	color:#727272;
+}
+
+.footer > div {
+	margin-bottom: 20px;
+}
+
+/*  helper   */
+
+.fix-footer {
+	position: absolute;
+	width: 100%;
+	bottom: 50px;
+}
+
+.blue-bg {
+	background-color: #2491d9;
+	color : #fff;
+}
+
+.green-bg {
+	background-color: #4fa800;
+	color : #fff;
+}
+
+.white-bg {
+	background-color: #fff;
+	color : #7487a5;
+}
+
+.description {
+	font-size: 1.2em;
+	text-align: left;
+	padding-top: 40px;
+	padding-bottom: 40px;
+}
+
+.description > p {
+	min-height: 5px;
+}
+
+.seperator {
+	margin-top: 60px;
+}
+
+.seperator-small {
+	margin-top: 20px;
+}
+
+.left {
+	padding: 10px 0px;
+	width : 48%;
+	float: left;
+}
+.right {
+	padding: 10px 0px;
+	width : 48%;
+	height: 100px;
+	float: right;
+}
+
+/* games */
+
+.logo-small {
+	background-color: #2199df;
+}
+.logo-small {
+	padding: 15px;
+}
+
+#divGameTitle {
+	font-size: 2em;
+	text-transform:uppercase;
+	font-family: Aller;
+	color : #4d4d4d;
+}
+
+#divDownload {
+	min-height: 120px;
+}
+
+.gameList .title>p {
+	text-transform:uppercase;
+	font-family: Aller;
+	padding : 20px;
+	font-size: 1.4em;
+	margin-bottom: 0px;
+}
+
+.categories {
+	min-height: 260px;
+}
+
+.categories > a {
+	display: inline;
+	float: left;
+	width: 25%;
+}
+
+.gameIcon > div {
+	margin-bottom: 30px;
+	width: 100%;
+	background-image: url("/static/image/icon_bg.png");
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+}
+
+.gameIcon > div > img {
+	padding: 16px;
+	max-width: 114px;
+}
+
+.gameIcon > p {
+	font-size: 1.4em;
+	color : #7487a5;
+}
+
+/* Jobs */
+#divJobTitle {
+	padding: 20px 20px 15px;
+	font-size: 1.5em;
+}
+
+.inline {
+	min-height: 50px;
+	padding: 0px 20px;
+	margin-bottom: 15px;
+}
+
+.inline > a {
+	color: #FFF;
+}
+
+.inline > a :active {
+	color: #FFF;
+}
+
+.inline > a > * {
+	display: inline;
+	padding: 5px 10px;
+	text-align: left;
+	float: left;
+}
+
+.inline > a > p {
+	position: relative;
+	top: 10px;
+	padding: 5px 20px 5px 0px;
+}
+
+.charge_form {
+	width: 300px;
+	margin: 30px auto;
+	text-align: center;
+	line-height: 20px;
+}
+
+.reg_form {
+	width: 330px;
+	height:auto;
+	margin: 30px auto;
+	text-align: center;
+	line-height: 30px;
+}
+
+.reg_form p{
+	width: 80px;
+	float: left;
+	vertical-align: middle;
+}
+
+.reg_form input .userInput{
+	width: 230px;
+	float: right;
+}
+
+.login_form {
+	width: 330px;
+	margin: 30px auto;
+	text-align: center;
+	line-height: 30px;
+}
+
+.login_form p{
+	width: 80px;
+	float: left;
+	vertical-align: middle;
+}
+
+.login_form input{
+	width: 230px;
+	float: right;
+}
+
+#btn_reg input{
+	margin-right: 30px;
+}
+
+#btn_login input{
+	margin-top: 10px;
+	margin-left: 1000px;
+	line-height: 50px;
+	width: 100px;
+}
+
+
+.charge_p {
+	vertical-align: text-bottom;
+	float: left;
+}
+
+.text_user {
+	max-width: 1100px;
+	min-width: 600px;
+	margin: 30px auto;
+	text-align: left;
+}
+
+input {
+	vertical-align: top;
+}
+
+@media (max-width: 1079px)
+{
+	.categories {
+		min-height: 230px;
+	}
+}
+
+@media (max-width: 767px)
+{
+	.navigator > div {
+		display: inline;
+		padding: 20px;
+	}
+
+	.seperator {
+		margin-top: 30px;
+	}
+
+	.line-2 {
+		height: 486px;
+	}
+
+	.categories {
+		min-height: 230px;
+	}
+
+	.categories > a {
+		display: inline;
+		float: left;
+		width: 50%;
+	}
+}
+
+@media (max-width: 499px) {
+	.navigator > div {
+		display: inline;
+		padding: 0px;
+	}
+
+	.gameIcon > p {
+		margin-top: -20px;
+		font-size: 1.2em;
+	}
+
+	.seperator {
+		margin-top: 10px;
+	}
+
+	#divDownload {
+		min-height: 70px;
+	}
+
+	.categories {
+		min-height: 200px;
+	}
+
+	.line-2 {
+		height: 426px;
+	}
+}
+
+@media (max-width: 400px) {
+	.gameIcon > div > img {
+		padding: 8px;
+	}
+
+	.categories {
+		min-height: 180px;
+	}
+
+	.line-2 {
+		height: 376px;
+	}
+}
+
+.bottom{
+	padding-top: 30px;
+	padding-bottom: 30px;
+	background-color: #c4e3f3;
+}
+
+.modal_top{
+	padding-top: 10px;
+	padding-bottom: 10px;
+	background-color: #c4e3f3;
+}
+
+.btn_reg {
+	padding-top: 20px;
+	padding-bottom: 20px;
+	margin-left:auto;
+	margin-right:auto;
+	text-align:center;
+	height : 54px;
+	width : 150px;
+	/*text-align: center;*/
+	/*padding-left: 200px;*/
+	/*padding-right: 300px;*/
+}
+
+.close{
+	/*background: #474747;*/
+	height: 30px;
+	width: 30px;
+	/*border: 3px solid #FFF;*/
+	/*border-radius: 50%;*/
+	position: absolute;
+	top: -15px;
+	right: -15px;
+	cursor: pointer;
+	opacity: 1;
+	/*transition: .4s .3s;*/
+}
+
+.box{
+	width: 230px;
+	height: 150px;
+	background-image: url("../image/home/image_signup_bg.png");
+	background-size: auto;
+	background-repeat: no-repeat;
+	border-radius: 4px;
+	padding: 20px 10px;
+	margin:auto;
+	text-align:center;
+}
+.box form{
+	/*display: none;*/
+	text-align: center;
+}
+.box form p{
+	display: inline;
+	text-align: left;
+	padding: 4px 0;
+	font-size: 14px;
+	color: #FFFFFF;
+}
+.box form .formInput{
+	display: inline;
+	width: 70%;
+	height: 28px;
+	line-height: 28px;
+	text-align: left;
+	outline: 0;
+}
+
+.box form input .btn_login{
+	width : 50%;
+}
+
+.btn{
+	display: inline-block;
+	/*background: #008C74;*/
+	font-size: 20px;
+	height: 45px;
+	line-height: 45px;
+	border-radius: 45px;
+	width: 124px;
+	text-align: center;
+	/*color: #fff;*/
+	margin-top: 10px;
+	cursor: pointer;
+}
+.box .userinfo{
+	display: none;
+	text-align: center;
+}
+.box .userinfo p {
+	color: #fff;
+	line-height: 2;
+	margin: 0;
+	font-size: 14px;
+	padding-left: 20px;
+	text-align: left;
+}
+
+.leftDiv{
+	padding-top: 20px;
+	padding-bottom: 0;
+	text-align: center;
+}
+
+.payDiv{
+	width : 500px;
+	height : 400px;
+}
+

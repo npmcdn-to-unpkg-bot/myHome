@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>frames</key>
+	<dict>
+		<key>img_rating_awesome.png</key>
+		<dict>
+			<key>frame</key>
+			<string>{{561, 1}, {438, 167}}</string>
+			<key>offset</key>
+			<string>{0, 0}</string>
+			<key>rotated</key>
+			<false/>
+			<key>sourceColorRect</key>
+			<string>{{0, 0}, {438, 167}}</string>
+			<key>sourceSize</key>
+			<string>{438, 167}</string>
+		</dict>
+		<key>img_rating_excellent.png</key>
+		<dict>
+			<key>frame</key>
+			<string>{{1, 1}, {558, 216}}</string>
+			<key>offset</key>
+			<string>{0, 0}</string>
+			<key>rotated</key>
+			<false/>
+			<key>sourceColorRect</key>
+			<string>{{0, 0}, {558, 216}}</string>
+			<key>sourceSize</key>
+			<string>{558, 216}</string>
+		</dict>
+		<key>img_rating_good.png</key>
+		<dict>
+			<key>frame</key>
+			<string>{{1, 219}, {298, 166}}</string>
+			<key>offset</key>
+			<string>{0, 0}</string>
+			<key>rotated</key>
+			<false/>
+			<key>sourceColorRect</key>
+			<string>{{0, 0}, {298, 166}}</string>
+			<key>sourceSize</key>
+			<string>{298, 166}</string>
+		</dict>
+		<key>img_stage_show.png</key>
+		<dict>
+			<key>frame</key>
+			<string>{{977, 170}, {36, 36}}</string>
+			<key>offset</key>
+			<string>{0, 0}</string>
+			<key>rotated</key>
+			<false/>
+			<key>sourceColorRect</key>
+			<string>{{0, 0}, {36, 36}}</string>
+			<key>sourceSize</key>
+			<string>{36, 36}</string>
+		</dict>
+		<key>over_bg.png</key>
+		<dict>
+			<key>frame</key>
+			<string>{{1, 619}, {110, 110}}</string>
+			<key>offset</key>
+			<string>{0, 0}</string>
+			<key>rotated</key>
+			<false/>
+			<key>sourceColorRect</key>
+			<string>{{0, 0}, {110, 110}}</string>
+			<key>sourceSize</key>
+			<string>{110, 110}</string>
+		</dict>
+		<key>over_btn_phone.png</key>
+		<dict>
+			<key>frame</key>
+			<string>{{561, 170}, {414, 128}}</string>
+			<key>offset</key>
+			<string>{0, 0}</string>
+			<key>rotated</key>
+			<false/>
+			<key>sourceColorRect</key>
+			<string>{{0, 0}, {414, 128}}</string>
+			<key>sourceSize</key>
+			<string>{414, 128}</string>
+		</dict>
+		<key>over_btn_retry.png</key>
+		<dict>
+			<key>frame</key>
+			<string>{{1, 387}, {160, 114}}</string>
+			<key>offset</key>
+			<string>{0, 0}</string>
+			<key>rotated</key>
+			<false/>
+			<key>sourceColorRect</key>
+			<string>{{0, 0}, {160, 114}}</string>
+			<key>sourceSize</key>
+			<string>{160, 114}</string>
+		</dict>
+		<key>over_btn_share.png</key>
+		<dict>
+			<key>frame</key>
+			<string>{{1, 503}, {160, 114}}</string>
+			<key>offset</key>
+			<string>{0, 0}</string>
+			<key>rotated</key>
+			<false/>
+			<key>sourceColorRect</key>
+			<string>{{0, 0}, {160, 114}}</string>
+			<key>sourceSize</key>
+			<string>{160, 114}</string>
+		</dict>
+		<key>over_show_bg.png</key>
+		<dict>
+			<key>frame</key>
+			<string>{{163, 387}, {134, 148}}</string>
+			<key>offset</key>
+			<string>{0, 0}</string>
+			<key>rotated</key>
+			<false/>
+			<key>sourceColorRect</key>
+			<string>{{0, 0}, {134, 148}}</string>
+			<key>sourceSize</key>
+			<string>{134, 148}</string>
+		</dict>
+		<key>win_medal.png</key>
+		<dict>
+			<key>frame</key>
+			<string>{{301, 219}, {178, 171}}</string>
+			<key>offset</key>
+			<string>{0, 0}</string>
+			<key>rotated</key>
+			<false/>
+			<key>sourceColorRect</key>
+			<string>{{0, 0}, {178, 171}}</string>
+			<key>sourceSize</key>
+			<string>{178, 171}</string>
+		</dict>
+	</dict>
+	<key>metadata</key>
+	<dict>
+		<key>format</key>
+		<integer>2</integer>
+		<key>size</key>
+		<string>{1024, 1024}</string>
+		<key>textureFileName</key>
+		<string>game.png</string>
+	</dict>
+</dict>
+</plist>
