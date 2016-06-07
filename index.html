@@ -96,16 +96,14 @@
 
         <div class="modal_top"><h4 >用户注册</h4></div>
         <div class="reg_form">
-
+            <img class="close" src="static/image/home/btn_signup_close.png" onclick="return closeRegistDiv()"/>
             <form style="..." onsubmit="return validate_form(this)">
-
-                <p>姓名:</p> <input class="userInput" type="text"  name="username"/>
-                <img class="close" src="static/image/home/btn_signup_close.png" onclick="return closeRegistDiv()"/>
-                <p>邮箱:</p> <input class="userInput" type="text" name="email"/>
-                <p>手机号:</p> <input class="userInput" type="text" name="phone"/>
-                <p>身份证:</p> <input class="userInput" type="text" name="idCard"/>
-                <p>密码:</p> <input class="userInput" type="password" name="password"/>
-                <p>重复密码:</p> <input class="userInput" type="password" name="repassword"/>
+                <div><p>姓名:</p> <input class="userInput" type="text"  name="username"/></div>
+                <div><p>邮箱:</p> <input class="userInput" type="text" name="email"/></div>
+                <div><p>手机号:</p> <input class="userInput" type="text" name="phone"/></div>
+                <div><p>身份证:</p> <input class="userInput" type="text" name="idCard"/></div>
+                <div><p>密码:</p> <input class="userInput" type="password" name="password"/></div>
+                <div><p>重复密码:</p> <input class="userInput" type="password" name="repassword"/></div>
                 <input class="btn_reg" type="image" src="static/image/home/btn_signup_ok.png" alt="submit"/>
             </form>
         </div>

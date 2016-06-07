@@ -4,7 +4,11 @@
 
 document.write("<script language='javascript' src='static/script/admin.js'></script>");
 document.write("<script language='javascript' src='static/script/user.js'></script>");
-document.write("<script language='javascript' src='static/script/jsencrypt/jsencrypt.min.js'></script>");
+
+document.write("<script language='javascript' src='static/script/rsa/Barrett.js'></script>");
+document.write("<script language='javascript' src='static/script/rsa/BigInt.js'></script>");
+document.write("<script language='javascript' src='static/script/rsa/RSA.js'></script>");
+// document.write("<script language='javascript' src='static/script/jsencrypt/jsencrypt.min.js'></script>");
 function validate_required(field, checkInfo)
 {
     if(checkInfo){
@@ -179,12 +183,20 @@ function authorize() {
     http += "redirect_uri=" + "";
 }
 
+function getSign(curTime, subject, total, showurl, body) {
+    // var sign =
+    // callPage('php/alipayapi.php?curTime='+curTime + "&subject=" + subject + "&total=" + total + "&showurl=" + showurl + "&body=" + body);
+    var http = "php/alipayapi.php?curTime="+curTime + "&subject=" + subject + "&total=" + total + "&showurl=" + showurl + "&body=" + body;
+    window.location.href = http;
+}
+
 function openPay(value){
-    alert(value);
+    // alert(value);
     var head = "https://openapi.alipay.com/gateway.do?";
     //time
     var cDate = new Date();
     var time = cDate.getFullYear() + "-" + (cDate.getMonth()+1) + "-" + cDate.getDate() + " " + cDate.getHours() + ":" + cDate.getMinutes() + ":" + cDate.getSeconds();
+/*
     var params = "";
     params += "app_id=" + "2016060201471580";                    //设置appid
     var content = {
@@ -198,26 +210,30 @@ function openPay(value){
     params += "&biz_content=" + content;
     params += "&charset=" + "utf-8";
     params += "&format=JSON";
-    params += "&method=" + "alipay.trade.wap.pay";                //设置接口名称
+    params += "&method=" + "alipay.trade.wap.pay";                  //设置接口名称
     params += "&notify_url=" + "http://veewogames.cn/home.html";
     params += "&return_url=" + "http://veewogames.cn/home.html";    //http/https开头字符串
     params += "&sign_type=" + "RSA";
-    params += "timestamp=" + time;                                //设置时间
+    params += "timestamp=" + time;                                  //设置时间
     params += "&version=" + "1.0";
 
-    alert(params);
+    // alert(params);
 
-    params += "&sign=" + getSign(params);
+    //params += "&sign=" + getSign(params);
 
-    head += params;
+    //head += params;
     // head += "&app_auth_token=" + "";
 
 
-    // window.location.href=head;
+    // window.location.href = head;
+    */
+    getSign(time, "test", "0.01", "http://veewogames.cn/index.html", "test");
 
-    // MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDDI6d306Q8fIfCOaTXyiUeJHkrIvYISRcc73s3vF1ZT7XN8RNPwJxo8pWaJMmvyTn9N4HQ632qJBVHf8sxHi/fEsraprwCtzvzQETrNRwVxLO5jVmRGi60j8Ue1efIlzPXV9je9mkjzOmdssymZkh2QhUrCmZYI/FCEa3/cNMW0QIDAQAB
 }
 
+
+
+/*
 function getSign(content){
     var key = "MIICXQIBAAKBgQC/E/Z70NE81TvazraTTjnwVrAisBgqCG1Fz7oDGnGjfqZCAv03" +
         "WKvhulySzWkP/0RDvhNMfVnVw8G6/5S/h+/iSdTOdYyOiRuefrkmWjdTg8o8Hv2U" +
@@ -232,12 +248,15 @@ function getSign(content){
         "y8n1ezPnBkG20NBrXJUXfOAqZskHnb750a96cop2/2IGQiLpO4gi6HN365o4QVL1" +
         "OGSToFr8LpObr2mNf3ECQQCIrgJIs8GnsYib/ec4L3UgpnoLUmGZEL0iLPCOtx8t" +
         "Te/ZBNsZYq7KdfRvcTia4tLVwCHddCns4JwFuaIdQc0j";
-    var crypt = new JSEncrypt({default_key_size: 2048});
-    crypt.setPrivateKey(key);
-    var decrypted = crypt.decrypt(content);
-    alert(decrypted);
-    return decrypted;
-}
+
+    var maxDigits = key.length/2 + 3;
+    setMaxDigits(maxDigits);
+
+    var key = new RSAKeyPair("10001", '', key);
+    var sign = encryptedString(key, content);
+    alert(sign);
+    return sign;
+}*/
 
 function checkParame() {
     var urlInfo = window.location.href;
@@ -255,3 +274,38 @@ function checkParame() {
         }
     }
 }
+
+
+function AjaxCaller(){
+    var xmlhttp = false;
+    try{
+        xmlhttp = new ActiveXObject("Msxml2.XMLHTTP");
+    }catch (e){
+        try{
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }catch (E){
+            xmlhttp = false;
+        }
+    }
+
+    if(!xmlhttp && typeof XMLHttpRequest != 'undefined'){
+        xmlhttp = new XMLHttpRequest();
+    }
+    return xmlhttp;
+}
+
+function callPage(url){
+    ajax = AjaxCaller();
+    ajax.open("GET", url, true);
+    ajax.onreadystatechange = function () {
+        if(ajax.readyState == 4){
+            if(ajax.status == 200){
+                // div.innerHTML = ajax.responseText;
+                // alert(ajax.responseText);
+            }
+        }
+    }
+    ajax.send(null);
+}
+
+

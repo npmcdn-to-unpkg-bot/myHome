@@ -274,6 +274,8 @@ a:hover {
 	margin: 30px auto;
 	text-align: center;
 	line-height: 30px;
+	padding-top : 30px;
+	padding-bottom : 20%;
 }
 
 .reg_form p{
