@@ -274,8 +274,8 @@ a:hover {
 	margin: 30px auto;
 	text-align: center;
 	line-height: 30px;
-	padding-top : 30px;
-	padding-bottom : 20%;
+	padding-top : 20%;
+	padding-bottom: 20%;
 }
 
 .reg_form p{
@@ -519,5 +519,15 @@ input {
 .payDiv{
 	width : 500px;
 	height : 400px;
+}
+
+.payView{
+	/*width: 330px;*/
+	/*height:auto;*/
+	/*margin: 30px auto;*/
+	text-align: center;
+	/*line-height: 30px;*/
+	padding-top : 10%;
+	padding-bottom: 20%;
 }
 

@@ -2,7 +2,7 @@
 <html lang="zh-cn">
 <head>
     <meta charset="UTF-8">
-    <title>主页</title>
+    <title>主页 | Veewo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="static/css/bootstrap.min.css" rel="stylesheet"/>
     <link href="static/css/bootstrap-responsive.min.css" rel="stylesheet"/>
@@ -86,7 +86,7 @@
                 <img src="static/image/home/image_2.png"/>
             </div>
             <div class="span4 seperator-small">
-                <img src="static/image/home/image_3.png"/>
+                <a href="http://fir.im/supercate"><img src="static/image/home/image_3.png"/></a>
             </div>
         </div>
     </div>
@@ -95,7 +95,7 @@
     <div id="divRegist" class="modal hidden">
 
         <div class="modal_top"><h4 >用户注册</h4></div>
-        <div class="reg_form">
+        <div class="reg_form ">
             <img class="close" src="static/image/home/btn_signup_close.png" onclick="return closeRegistDiv()"/>
             <form style="..." onsubmit="return validate_form(this)">
                 <div><p>姓名:</p> <input class="userInput" type="text"  name="username"/></div>
@@ -113,13 +113,19 @@
         <div class="modal_top"><h4 >充值</h4></div>
         <img class="close" src="static/image/home/btn_signup_close.png" onclick="return closePayDiv()"/>
 
-        <div class="reg_form">
+        <div class="payView">
             <div>
                 <img src="static/image/home/btn_charge_5.png" onclick="return openPay(5)">
+            </div>
+            <div>
+                <p>V币用于幻影猫游戏内购买道具</p>
             </div>
 
             <div style="padding-top: 30px">
                 <img src="static/image/home/btn_charge_10.png" onclick="return openPay(10)">
+            </div>
+            <div>
+                <p>V币用于幻影猫游戏内购买道具</p>
             </div>
         </div>
     </div>
