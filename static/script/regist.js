@@ -131,12 +131,12 @@ function closeRegistDiv(){
 
 function showPayDiv(){
     // openPay()
-    if(null != vee.User.phone){
+    // if(null != vee.User.phone){
         $(document.getElementById("divPay")).removeClass('hidden');
-    }
-    else{
-        alert("请先登录");
-    }
+    // }
+    // else{
+    //     alert("请先登录");
+    // }
 }
 
 function closePayDiv(){
@@ -195,46 +195,47 @@ function getSign(curTime, subject, total, showurl, body) {
     window.location.href = http;
 }
 
-function openPay(value){
-    // alert(value);
-    var head = "https://openapi.alipay.com/gateway.do?";
-    //time
-    var cDate = new Date();
-    var time = cDate.getFullYear() + "-" + (cDate.getMonth()+1) + "-" + cDate.getDate() + " " + cDate.getHours() + ":" + cDate.getMinutes() + ":" + cDate.getSeconds();
-/*
-    var params = "";
-    params += "app_id=" + "2016060201471580";                    //设置appid
-    var content = {
-        "body" : "test",
-        "subject" : "test",
-        "out_trade_no" : "123456789",
-        "timeout_express" : "90m",
-        "total_amount" : "0.01",
-        "seller_id" : "",
-    }
-    params += "&biz_content=" + content;
-    params += "&charset=" + "utf-8";
-    params += "&format=JSON";
-    params += "&method=" + "alipay.trade.wap.pay";                  //设置接口名称
-    params += "&notify_url=" + "http://veewogames.cn/home.html";
-    params += "&return_url=" + "http://veewogames.cn/home.html";    //http/https开头字符串
-    params += "&sign_type=" + "RSA";
-    params += "timestamp=" + time;                                  //设置时间
-    params += "&version=" + "1.0";
 
-    // alert(params);
-
-    //params += "&sign=" + getSign(params);
-
-    //head += params;
-    // head += "&app_auth_token=" + "";
-
-
-    // window.location.href = head;
-    */
-    getSign(time, "test", "0.01", "http://veewogames.cn/index.html", "test");
-
-}
+// function openPay(value){
+//     // alert(value);
+//     var head = "https://openapi.alipay.com/gateway.do?";
+//     //time
+//     var cDate = new Date();
+//     var time = cDate.getFullYear() + "-" + (cDate.getMonth()+1) + "-" + cDate.getDate() + " " + cDate.getHours() + ":" + cDate.getMinutes() + ":" + cDate.getSeconds();
+// /*
+//     var params = "";
+//     params += "app_id=" + "2016060201471580";                    //设置appid
+//     var content = {
+//         "body" : "test",
+//         "subject" : "test",
+//         "out_trade_no" : "123456789",
+//         "timeout_express" : "90m",
+//         "total_amount" : "0.01",
+//         "seller_id" : "",
+//     }
+//     params += "&biz_content=" + content;
+//     params += "&charset=" + "utf-8";
+//     params += "&format=JSON";
+//     params += "&method=" + "alipay.trade.wap.pay";                  //设置接口名称
+//     params += "&notify_url=" + "http://veewogames.cn/home.html";
+//     params += "&return_url=" + "http://veewogames.cn/home.html";    //http/https开头字符串
+//     params += "&sign_type=" + "RSA";
+//     params += "timestamp=" + time;                                  //设置时间
+//     params += "&version=" + "1.0";
+//
+//     // alert(params);
+//
+//     //params += "&sign=" + getSign(params);
+//
+//     //head += params;
+//     // head += "&app_auth_token=" + "";
+//
+//
+//     // window.location.href = head;
+//     */
+//     getSign(time, "test", "0.01", "http://veewogames.cn/index.html", "test");
+//
+// }
 
 
 

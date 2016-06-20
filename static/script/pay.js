@@ -14,6 +14,13 @@ function openPay(value){
     var cDate = new Date();
     var time = cDate.getFullYear() + "-" + (cDate.getMonth()+1) + "-" + cDate.getDate() + " " + cDate.getHours() + ":" + cDate.getMinutes() + ":" + cDate.getSeconds();
 
-    getSign(time, "test", "0.01", "http://veewogames.cn/index.html", "test");
+    var alipay = false;
+    if(alipay){
+        getSign(time, "test", "0.01", "http://veewogames.cn/index.html", "test");
+    }
 
+    var wechatpay = true;
+    if(wechatpay){
+        window.location.href= "php/wechatpay/example/native.php";
+    }
 }
