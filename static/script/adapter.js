@@ -49,5 +49,12 @@ function checkAdapterParame() {
             }
             loginByUrlParam(username, password);
         }
+        else if("newplayer" == firstParam["value"]){
+            var param = getParamValueByParamList(paramList, 1);
+            if("uid" == param.key){
+                // alert(param.value);
+                return "test";
+            }
+        }
     }
 }
