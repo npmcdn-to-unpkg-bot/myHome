@@ -96,19 +96,28 @@ class PayNotifyCallBack extends WxPayNotify
 		$tradeNo = $data["out_trade_no"];	//支付单号
 		$total = $data["total_fee"];		//支付金额
 		$timeEnd= $data["time_end"];		//支付完成时间
-		if($total == "500"){
+		if($total == "1"){
 			$vcoin = 50;
 		}
 		elseif ($total == "1000"){
 			$vcoin = 120;
 		}
+		else{
+			$vcoin = 1;
+		}
+		// Log::DEBUG("total====".$total);
 		$data = array("uid" => $uid, "tradeNo" => $tradeNo, "total" => $total, "time" => $timeEnd, "vcoin" => $vcoin);
 
 		$firebase = new \Firebase\FirebaseLib(DEFAULT_URL, DEFAULT_TOKEN);
 
 		$test = $firebase->set(DEFAULT_PATH . '/' . $tradeNo, $data);
+		$oldData = $firebase->get("/users/".$uid."/coin/");
 		if(null != $test){
-			$newCoin = $test["coin"] + $vcoin;
+
+			$newCoin = $oldData + $vcoin;
+			// Log::DEBUG("vcoin====set in database==".$vcoin);
+			// Log::DEBUG("old coin====set in database==".$oldData);
+			// Log::DEBUG("total====set in database==".$newCoin);
 			$test = $firebase->set("users/".$uid."/coin/", $newCoin);
 		}
 		else{
