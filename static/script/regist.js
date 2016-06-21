@@ -131,12 +131,12 @@ function closeRegistDiv(){
 
 function showPayDiv(){
     // openPay()
-    // if(null != vee.User.phone){
+    if(null != vee.User.phone){
         $(document.getElementById("divPay")).removeClass('hidden');
-    // }
-    // else{
-    //     alert("请先登录");
-    // }
+    }
+    else{
+        alert("请先登录");
+    }
 }
 
 function closePayDiv(){

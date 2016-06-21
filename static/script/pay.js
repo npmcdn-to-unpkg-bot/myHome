@@ -2,6 +2,7 @@
  * Created by jack on 16/6/8.
  */
 
+
 function getSign(curTime, subject, total, showurl, body) {
     // var sign =
     // callPage('php/alipayapi.php?curTime='+curTime + "&subject=" + subject + "&total=" + total + "&showurl=" + showurl + "&body=" + body);
@@ -21,6 +22,12 @@ function openPay(value){
 
     var wechatpay = true;
     if(wechatpay){
-        window.location.href= "php/wechatpay/example/native.php";
+        window.location.href= "php/wechatpay/example/native.php?user=" + vee.User.phone;
     }
+}
+
+function setOrder(uid, tradeNo, total, timeEnd){
+    // alert("uid=="+uid+"   trade=="+tradeNo+"  total=="+total+ "   timeend=="+timeEnd);
+    // alert("fuck");
+    Flow.do(vee.Order.setOrder, uid, tradeNo, total, timeEnd).onResult().go();
 }

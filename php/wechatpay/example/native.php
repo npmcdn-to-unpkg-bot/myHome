@@ -17,7 +17,7 @@ require_once 'log.php';
  * 6、在支付成功通知中需要查单确认是否真正支付成功（见：notify.php）
  */
 $notify = new NativePay();
-$url1 = $notify->GetPrePayUrl("123456789");
+//$url1 = $notify->GetPrePayUrl("123456789");
 
 //模式二
 /**
@@ -29,9 +29,11 @@ $url1 = $notify->GetPrePayUrl("123456789");
  */
 $input = new WxPayUnifiedOrder();
 $input->SetBody("veewo V币购买测试");
-$input->SetAttach("veewo测试");
-$input->SetOut_trade_no(WxPayConfig::MCHID.date("YmdHis"));
-$input->SetTotal_fee("1");
+$input->SetAttach("15377935280");
+$tradeNo = WxPayConfig::MCHID.date("YmdHis");
+//echo $tradeNo;
+$input->SetOut_trade_no($tradeNo);
+$input->SetTotal_fee("500");
 $input->SetTime_start(date("YmdHis"));
 $input->SetTime_expire(date("YmdHis", time() + 600));
 $input->SetGoods_tag("商品标记测试");
@@ -52,13 +54,13 @@ $url2 = $result["code_url"];
     <title>微信支付样例-退款</title>
 </head>
 <body>
-<!--
-	<div style="margin-left: 10px;color:#556B2F;font-size:30px;font-weight: bolder;">扫描支付模式一</div><br/>
-	<img alt="模式一扫码支付" src="http://paysdk.weixin.qq.com/example/qrcode.php?data=<?php echo urlencode($url1);?>" style="width:150px;height:150px;"/>
-	<br/><br/><br/>
--->
+
+<!--	<div style="margin-left: 10px;color:#556B2F;font-size:30px;font-weight: bolder;">扫描支付模式一</div><br/>-->
+<!--	<img alt="模式一扫码支付" src="http://paysdk.weixin.qq.com/example/qrcode.php?data=--><?php //echo urlencode($url1);?><!--" style="width:150px;height:150px;"/>-->
+<!--	<br/><br/><br/>-->
+
 	<div style="margin-left: 10px;color:#556B2F;font-size:30px;font-weight: bolder;">扫描支付模式二</div><br/>
-	<img alt="模式二扫码支付" src="http://www.veewogames.cn/php/wechatpay/example/qrcode.php?data=<?php echo urlencode($url2);?>" style="width:150px;height:150px;"/>
+	<img alt="模式二扫码支付" src="qrcode.php?data=<?php echo urlencode($url2);?>" style="width:150px;height:150px;"/>
 	
 </body>
 </html>
