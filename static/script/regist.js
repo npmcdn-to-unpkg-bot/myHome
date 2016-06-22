@@ -356,18 +356,18 @@ function AjaxCaller(){
     return xmlhttp;
 }
 
-function callPage(url){
-    ajax = AjaxCaller();
-    ajax.open("GET", url, true);
-    ajax.onreadystatechange = function () {
-        if(ajax.readyState == 4){
-            if(ajax.status == 200){
-                // div.innerHTML = ajax.responseText;
-                // alert(ajax.responseText);
-            }
-        }
-    }
-    ajax.send(null);
-}
+// function callPage(url){
+//     ajax = AjaxCaller();
+//     ajax.open("GET", url, true);
+//     ajax.onreadystatechange = function () {
+//         if(ajax.readyState == 4){
+//             if(ajax.status == 200){
+//                 // div.innerHTML = ajax.responseText;
+//                 // alert(ajax.responseText);
+//             }
+//         }
+//     }
+//     ajax.send(null);
+// }
 
 
