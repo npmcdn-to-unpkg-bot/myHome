@@ -1,4 +1,53 @@
 <!DOCTYPE html>
+<?php
+ini_set('date.timezone','Asia/Shanghai');
+//error_reporting(E_ERROR);
+
+require_once "php/wechatpay/lib/WxPay.Api.php";
+require_once "php/wechatpay/example/WxPay.NativePay.php";
+require_once 'php/wechatpay/example/log.php';
+
+require_once 'php/wechatpay/example/firebaseInterface.php';
+require_once 'php/wechatpay/example/firebaseLib.php';
+require_once 'php/wechatpay/example/firebaseStub.php';
+
+const DEFAULT_URL = 'https://yop-dev.firebaseio.com/PhantomCat/';
+const DEFAULT_TOKEN = '';
+const DEFAULT_PATH = '/orders';
+
+$firebase = new \Firebase\FirebaseLib(DEFAULT_URL, DEFAULT_TOKEN);
+
+function getOldCoin(){
+    $uid = $_GET["uid"];
+    global $firebase;
+    $oldCoin = $firebase->get("/users/" . $uid . "/coin");
+    return $oldCoin;
+}
+
+function getCodeUrl($total){
+    $uid = $_GET["uid"];
+    if(null == $uid) return;
+
+    $notify = new NativePay();
+    $input = new WxPayUnifiedOrder();
+    $input->SetBody("veewo V币购买");
+    $input->SetAttach($uid);
+    $tradeNo = WxPayConfig::MCHID.date("YmdHis");
+    $input->SetOut_trade_no($tradeNo);
+    $input->SetTotal_fee($total);
+    $input->SetTime_start(date("YmdHis"));
+    $input->SetTime_expire(date("YmdHis", time() + 600));
+    $input->SetGoods_tag("V币");
+    $input->SetNotify_url("http://www.veewogames.cn/php/wechatpay/example/notify.php");
+    $input->SetTrade_type("NATIVE");
+    $input->SetProduct_id(time());
+    $result = $notify->GetPayUrl($input);
+    $url = $result["code_url"];
+    return $url;
+}
+
+?>
+
 <html lang="zh-cn">
 <head>
     <meta charset="UTF-8">
@@ -88,6 +137,7 @@
             <div class="span4 seperator-small">
                 <a href="http://fir.im/supercate"><img src="static/image/home/image_3.png"/></a>
             </div>
+            
         </div>
     </div>
 
@@ -109,24 +159,66 @@
         </div>
     </div>
 
-    <div id="divPay" class="modal hidden payDiv">
-        <div class="modal_top"><h4 >充值</h4></div>
+<!--    <div id="divPay" class="modal hidden payDiv">-->
+<!--        <div class="modal_top"><h4 >充值</h4></div>-->
+<!--        <img class="close" src="static/image/home/btn_signup_close.png" onclick="return closePayDiv()"/>-->
+<!---->
+<!--        <div class="payView">-->
+<!--            <div>-->
+<!--                <img src="static/image/home/btn_charge_5.png" onclick="return openPay(5)">-->
+<!--            </div>-->
+<!--            <div>-->
+<!--                <p>V币用于幻影猫游戏内购买道具</p>-->
+<!--            </div>-->
+<!---->
+<!--            <div style="padding-top: 30px">-->
+<!--                <img src="static/image/home/btn_charge_10.png" onclick="return openPay(10)">-->
+<!--            </div>-->
+<!--            <div>-->
+<!--                <p>V币用于幻影猫游戏内购买道具</p>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+    <div id="divPay" class="modal hidden popView" style="height : 420px;">
+        <div class="modal_top" style="background-color: #d8f2ff; height : 40px;"><p style="color: #003399; font-size : 150%; margin-top: 10px;">微信扫一扫</p></div>
         <img class="close" src="static/image/home/btn_signup_close.png" onclick="return closePayDiv()"/>
+        <div>
+            <img alt="扫码支付" src="php/wechatpay/example/qrcode.php?data=<?php echo urlencode(getCodeUrl("500"));?>" style="width:240px;height:240px;"/>
+            <br>
+            <img src="static/image/home/btn_charge_5.png"">
+        </div>
+
+    </div>
+
+    <div id="paySuccess" class="modal hidden popView">
+        <div class="modal_top" style="background-color: #ddffbb; height : 40px;"><p style="color : #00b20d; font-size : 150%; margin-top: 10px;">支付成功</p></div>
 
         <div class="payView">
             <div>
-                <img src="static/image/home/btn_charge_5.png" onclick="return openPay(5)">
+                <img src="static/image/home/image_pay_success.png"/><br>
+                <p id="curCoinLab">当前余额:</p>
             </div>
+            <br>
             <div>
-                <p>V币用于幻影猫游戏内购买道具</p>
+                <img src="static/image/home/btn_pay_ok.png" onclick="return hideDiv('paySuccess')"/>
             </div>
 
-            <div style="padding-top: 30px">
-                <img src="static/image/home/btn_charge_10.png" onclick="return openPay(10)">
-            </div>
+        </div>
+    </div>
+
+    <div id="payFail" class="modal hidden popView">
+        <div class="modal_top" style="background-color: #ffdbd8; height : 40px;"><p style="color: #e14141; font-size : 150%; margin-top: 10px;">支付失败</p></div>
+
+        <div class="payView">
             <div>
-                <p>V币用于幻影猫游戏内购买道具</p>
+                <img src="static/image/home/image_pay_fail.png"/><br>
+                <p>支付失败, 请再次尝试</p>
             </div>
+            <br>
+            <div>
+                <img src="static/image/home/btn_pay_ok.png" onclick="return hideDiv('payFail')">
+            </div>
+
         </div>
     </div>
 
@@ -190,6 +282,25 @@
 
 		checkParame();
     });
+
+//    function showTime(){
+//        <?php
+//        //                $firebase->set("users/".$tmpUid."/coin", 200);  //debug
+//        $newCoin = $firebase->get("/users/" . $tmpUid . "/coin");
+//        if($newCoin > $oldCoin){
+////                    echo "alert('充值成功')";
+//            echo "showDiv('paySuccess')";
+//        }
+//        else{
+////                    echo "alert('充值未成功')";
+//        }
+//        ?>
+//    }
+//    function reloadFunc() {
+//        window.setInterval("showTime()", 3000);
+//    }
+//    window.onload = reloadFunc();
+
 </script>
 
 

@@ -531,3 +531,11 @@ input {
 	padding-bottom: 20%;
 }
 
+.popView{
+	position : absolute;
+	top : 50%;
+	/*width : 50%;*/
+	margin-top : -165px;
+	height : 330px;
+	text-align : center;
+}

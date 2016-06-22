@@ -35,15 +35,49 @@ require_once "../lib/WxPay.Api.php";
 require_once '../lib/WxPay.Notify.php';
 require_once 'log.php';
 
+//const DEFAULT_URL = 'https://yop-dev.firebaseio.com/PhantomCat/';
+//const DEFAULT_TOKEN = '';
+//const DEFAULT_PATH = '/orders';
 
+//$uid = 15377935280;//$data["attach"];				//web端存储的支付用户id
+//$tradeNo = $data["out_trade_no"];	//支付单号
+//$total = $data["total_fee"];		//支付金额
+//$timeEnd= $data["time_end"];		//支付完成时间
+//if($total == "1"){
+//	$vcoin = 50;
+//}
+//elseif ($total == "1000"){
+//	$vcoin = 120;
+//}
+//else{
+//	$vcoin = 1;
+//}
+//Log::DEBUG("total====".$total);
+//$data = array("uid" => $uid, "tradeNo" => $tradeNo, "total" => $total, "time" => $timeEnd, "vcoin" => $vcoin);
+//
+//$firebase = new \Firebase\FirebaseLib(DEFAULT_URL, DEFAULT_TOKEN);
+//
+//$test = $firebase->set(DEFAULT_PATH . '/' . $tradeNo, $data);
+//$oldData = $firebase->get("/users/".$uid."/coin/");
+//print_r($oldData);
+//
+//if(null != $test){
+//
+//	$newCoin = $oldData["coin"] + $vcoin;
+//	Log::DEBUG("vcoin====set in database==".$vcoin);
+//	Log::DEBUG("old coin====set in database==".$oldData["coin"]);
+//	Log::DEBUG("total====set in database==".$newCoin);
+//	$test = $firebase->set("users/".$uid."/coin/", $newCoin);
+//}
+//else{
+//	//支付失败
+//}
 
 //初始化日志
 $logHandler= new CLogFileHandler("../logs/".date('Y-m-d').'.log');
 $log = Log::Init($logHandler, 15);
 
-const DEFAULT_URL = 'https://yop-dev.firebaseio.com/PhantomCat/';
-const DEFAULT_TOKEN = '';
-const DEFAULT_PATH = '/orders';
+
 
 //echo print_r($log);
 
@@ -61,6 +95,7 @@ class PayNotifyCallBack extends WxPayNotify
 			&& $result["return_code"] == "SUCCESS"
 			&& $result["result_code"] == "SUCCESS")
 		{
+			this.$this->setDataByOrder($result);
 			return true;
 		}
 		return false;
@@ -85,7 +120,7 @@ class PayNotifyCallBack extends WxPayNotify
 			return false;
 		}
 
-		$this->setDataByOrder($data);
+//		$this->setDataByOrder($data);
 
 		return true;
 	}
@@ -124,6 +159,7 @@ class PayNotifyCallBack extends WxPayNotify
 			//支付失败
 		}
 	}
+
 }
 
 Log::DEBUG("begin notify server time=" . time());

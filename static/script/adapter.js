@@ -19,7 +19,7 @@ function loginByUrlParam(username, password) {
             }
             else{
                 
-                window.location.href="index.html?phoneAction=pay";
+                window.location.href="../../index.php";
             }
         }.bind(this)
     ).go();
