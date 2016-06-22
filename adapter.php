@@ -28,7 +28,8 @@
 <script type="text/javascript" src="static/script/flow.js"></script>
 <script type="text/javascript" src="static/script/home.js"></script>
 
-<script src="https://www.gstatic.com/firebasejs/3.0.2/firebase.js"></script>
+<!--<script src="https://www.gstatic.com/firebasejs/3.0.2/firebase.js"></script>-->
+<script type="text/javascript" src="static/script/firebase.js"></script>
 <script type="text/javascript" src="static/script/user.js"></script>
 <script type="text/javascript" src="static/script/regist.js"></script>
 <script type = "text/javascript">
