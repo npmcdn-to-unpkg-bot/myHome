@@ -124,9 +124,9 @@ function login(thisform) {
     return false;
     */
     with(thisform) {
-        if (validate_required(username, check_phone(username.value))) {
-            return false;
-        }
+        // if (validate_required(username, check_phone(username.value))) {
+        //     return false;
+        // }
 
         if (validate_required(password, check_psw(password.value))) {
             return false;
