@@ -24,7 +24,7 @@ $tmpUid = $_GET["uid"];
 $firebase = new \Firebase\FirebaseLib(DEFAULT_URL, DEFAULT_TOKEN);
 $oldCoin = $firebase->get("/users/" . $tmpUid . "/coin");
 
-$firebase->set("/users/15377935280/coin", $oldCoin+1);
+//$firebase->set("/users/15377935280/coin", $oldCoin+1);
 
 function getCodeUrl($total){
     $uid = $_GET["uid"];
@@ -69,8 +69,9 @@ function getCodeUrl($total){
 //                $firebase->set("users/".$tmpUid."/coin", 200);  //debug
                 $newCoin = $firebase->get("/users/" . $tmpUid . "/coin");
                 if($newCoin > $oldCoin){
-//                    echo "alert('充值成功')";
-                    echo "showDiv('paySuccess')";
+                    $oldCoin = $newCoin;
+                    echo "alert('充值成功')";
+//                    echo "showDiv('paySuccess')";
                 }
                 else{
 //                    echo "alert('充值未成功')";

@@ -44,7 +44,6 @@
 <!--[if IE 6]>
 <script src="static/script/ie6.min.js"></script>
 <![endif]-->
-
 <script type="text/javascript" src="static/script/adapter.js"></script>
 
 
