@@ -24,7 +24,7 @@ $tmpUid = $_GET["uid"];
 $firebase = new \Firebase\FirebaseLib(DEFAULT_URL, DEFAULT_TOKEN);
 $oldCoin = $firebase->get("/users/" . $tmpUid . "/coin");
 
-//$firebase->set("/users/15377935280/coin", $oldCoin+1);
+$firebase->set("/users/15377935280/coin", $oldCoin+1);
 
 function getCodeUrl($total){
     $uid = $_GET["uid"];
@@ -88,7 +88,7 @@ function getCodeUrl($total){
 
     <div class="payView">
         <div>
-            <img alt="扫码支付" src="php/wechatpay/example/qrcode.php?data=<?php echo urlencode(getCodeUrl("500"));?>" style="width:240px;height:240px;"/>
+            <img alt="扫码支付" src="php/wechatpay/example/qrcode.php?data=<?php echo urlencode(getCodeUrl("1"));?>" style="width:240px;height:240px;"/>
             <br><br><br>
             <img src="static/image/home/btn_charge_5.png"">
         </div>

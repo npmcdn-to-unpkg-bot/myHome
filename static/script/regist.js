@@ -152,19 +152,21 @@ function closeRegistDiv(){
 }
 
 
-function showPayDiv(){
-    // openPay()
-    if(null != vee.User.phone){
-    // if(true){
-        isshowPayDiv = true;
-        oldCoin = vee.User.coin;
-        $(document.getElementById("divPay")).removeClass('hidden');
-
-    }
-    else{
-        alert("请先登录");
-    }
-}
+// function showPayDiv(){
+//     // openPay()
+//     if(null != vee.User.phone){
+//     // if(true){
+//         isshowPayDiv = true;
+//         oldCoin = vee.User.coin;
+//         var imgCode = document.write("<?php echo urlencode(getCodeUrl('500'));?>");
+//         document.getElementById("payImg").src="php/wechatpay/example/qrcode.php?data=" + imgCode;
+//         $(document.getElementById("divPay")).removeClass('hidden');
+//
+//     }
+//     else{
+//         alert("请先登录");
+//     }
+// }
 
 
 function closePayDiv(){

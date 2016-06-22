@@ -67,6 +67,55 @@ function getCodeUrl($total){
 
     <script type="text/javascript" src="static/script/jquery-latest.min.js"></script>
 
+    <script type="text/javascript" src="static/script/flow.js"></script>
+    <script type="text/javascript" src="static/script/home.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/3.0.2/firebase.js"></script>
+    <script type="text/javascript" src="static/script/user.js"></script>
+    <script type="text/javascript" src="static/script/regist.js"></script>
+    <script type="text/javascript" src="static/script/pay.js"></script>
+    <script type = "text/javascript">
+        vee.firebase = firebase.initializeApp({
+            apiKey: "AIzaSyD34SbBSlAZQ85rcNtbYTGm5w3MHnrK8k4",
+            authDomain: "yop-dev.firebaseapp.com",
+            databaseURL: "https://yop-dev.firebaseio.com",
+            storageBucket: "yop-dev.appspot.com",
+        });
+    </script>
+    <script type="text/javascript" src="static/script/bootstrap.min.js"></script>
+    <!--[if IE 6]>
+    <script src="static/script/ie6.min.js"></script>
+    <![endif]-->
+
+
+
+    <script type="text/javascript">
+
+        function showPayDiv(){
+            // openPay()
+            if(null != vee.User.phone){
+                // if(true){
+                isshowPayDiv = true;
+                oldCoin = vee.User.coin;
+                var imgCode = "<?php echo urlencode(getCodeUrl('500'))?>";
+                document.getElementById("payImg").src="php/wechatpay/example/qrcode.php?data=" + imgCode;
+                $(document.getElementById("divPay")).removeClass('hidden');
+            }
+            else{
+                alert("请先登录");
+            }
+        }
+
+        $(document).ready(function () {
+//        alert("hello world");
+//        openPay(5);
+//		window.localStorage.
+
+            checkParame();
+        });
+
+    </script>
+
     <style>
         body { padding: 0px; }
     </style>
@@ -183,7 +232,7 @@ function getCodeUrl($total){
         <div class="modal_top" style="background-color: #d8f2ff; height : 40px;"><p style="color: #003399; font-size : 150%; margin-top: 10px;">微信扫一扫</p></div>
         <img class="close" src="static/image/home/btn_signup_close.png" onclick="return closePayDiv()"/>
         <div>
-            <img alt="扫码支付" src="php/wechatpay/example/qrcode.php?data=<?php echo urlencode(getCodeUrl("500"));?>" style="width:240px;height:240px;"/>
+            <img id="payImg" alt="扫码支付" src="php/wechatpay/example/qrcode.php?data=<?php echo urlencode(getCodeUrl("500"));?>" style="width:240px;height:240px;"/>
             <br>
             <img src="static/image/home/btn_charge_5.png"">
         </div>
@@ -252,56 +301,7 @@ function getCodeUrl($total){
 
 </div>
 
-<script type="text/javascript" src="static/script/flow.js"></script>
-<script type="text/javascript" src="static/script/home.js"></script>
 
-<script src="https://www.gstatic.com/firebasejs/3.0.2/firebase.js"></script>
-<script type="text/javascript" src="static/script/user.js"></script>
-<script type="text/javascript" src="static/script/regist.js"></script>
-<script type="text/javascript" src="static/script/pay.js"></script>
-<script type = "text/javascript">
-    vee.firebase = firebase.initializeApp({
-        apiKey: "AIzaSyD34SbBSlAZQ85rcNtbYTGm5w3MHnrK8k4",
-        authDomain: "yop-dev.firebaseapp.com",
-        databaseURL: "https://yop-dev.firebaseio.com",
-        storageBucket: "yop-dev.appspot.com",
-    });
-</script>
-<script type="text/javascript" src="static/script/bootstrap.min.js"></script>
-<!--[if IE 6]>
-<script src="static/script/ie6.min.js"></script>
-<![endif]-->
-
-
-
-<script type="text/javascript">
-    $(document).ready(function () {
-//        alert("hello world");
-//        openPay(5);
-//		window.localStorage.
-
-		checkParame();
-    });
-
-//    function showTime(){
-//        <?php
-//        //                $firebase->set("users/".$tmpUid."/coin", 200);  //debug
-//        $newCoin = $firebase->get("/users/" . $tmpUid . "/coin");
-//        if($newCoin > $oldCoin){
-////                    echo "alert('充值成功')";
-//            echo "showDiv('paySuccess')";
-//        }
-//        else{
-////                    echo "alert('充值未成功')";
-//        }
-//        ?>
-//    }
-//    function reloadFunc() {
-//        window.setInterval("showTime()", 3000);
-//    }
-//    window.onload = reloadFunc();
-
-</script>
 
 
 </body>
