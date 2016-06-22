@@ -40,8 +40,3 @@ function hideDiv(divId) {
     $(document.getElementById(divId)).addClass('hidden');
 }
 
-function gohome(){
-    // var homeUrl = "www.veewogames.cn";
-    window.location.href = "../../index.php";
-}
-
