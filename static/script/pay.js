@@ -17,12 +17,12 @@ function openPay(value){
 
     var alipay = false;
     if(alipay){
-        getSign(time, "test", "0.01", "http://veewogames.cn/index.html", "test");
+        getSign(time, "test", "0.01", "http://veewogames.cn/index.php", "test");
     }
 
     var wechatpay = true;
     if(wechatpay){
-        window.location.href= "php/wechatpay/example/native.php?user=" + vee.User.phone;
+        window.location.href= "php/wechatpay/example/native.php?uid=" + vee.User.phone;
     }
 }
 
@@ -31,3 +31,17 @@ function setOrder(uid, tradeNo, total, timeEnd){
     // alert("fuck");
     Flow.do(vee.Order.setOrder, uid, tradeNo, total, timeEnd).onResult().go();
 }
+
+function showDiv(divId){
+    $(document.getElementById(divId)).removeClass('hidden');
+}
+
+function hideDiv(divId) {
+    $(document.getElementById(divId)).addClass('hidden');
+}
+
+function gohome(){
+    // var homeUrl = "www.veewogames.cn";
+    window.location.href = "../../index.php";
+}
+

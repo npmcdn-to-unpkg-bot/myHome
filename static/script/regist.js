@@ -9,6 +9,10 @@ document.write("<script language='javascript' src='static/script/rsa/Barrett.js'
 document.write("<script language='javascript' src='static/script/rsa/BigInt.js'></script>");
 document.write("<script language='javascript' src='static/script/rsa/RSA.js'></script>");
 // document.write("<script language='javascript' src='static/script/jsencrypt/jsencrypt.min.js'></script>");
+
+var isshowPayDiv = false;
+var oldCoin = 0;
+
 function validate_required(field, checkInfo)
 {
     if(checkInfo){
@@ -92,6 +96,7 @@ function registResult(isSuccess) {
 
 
 function login(thisform) {
+    /*
     with(thisform){
 
         if(validate_required(username, check_phone(username.value))){
@@ -117,6 +122,23 @@ function login(thisform) {
         ).go();
     }
     return false;
+    */
+    with(thisform) {
+        if (validate_required(username, check_phone(username.value))) {
+            return false;
+        }
+
+        if (validate_required(password, check_psw(password.value))) {
+            return false;
+        }
+
+        vee.User.phone = username.value;
+        vee.User.psw = password.value;
+
+        var url = "index.php?uid=" + vee.User.phone + "&psw=" + vee.User.psw;
+        window.location.href = url;
+    }
+    return false;
 }
 
 
@@ -129,17 +151,25 @@ function closeRegistDiv(){
     $(document.getElementById("divRegist")).addClass('hidden');
 }
 
+
 function showPayDiv(){
     // openPay()
     if(null != vee.User.phone){
+    // if(true){
+        isshowPayDiv = true;
+        oldCoin = vee.User.coin;
         $(document.getElementById("divPay")).removeClass('hidden');
+
     }
     else{
         alert("请先登录");
     }
 }
 
+
 function closePayDiv(){
+    isshowPayDiv = false;
+    oldCoin = vee.User.coin;
     $(document.getElementById("divPay")).addClass('hidden');
 }
 
@@ -168,10 +198,17 @@ function refreshUserInfoDiv(){
         money.innerHTML="v币：" + vee.User.coin;
     }
 
+    if(isshowPayDiv && oldCoin < vee.User.coin){
+        closePayDiv();
+        showDiv("paySuccess");
+        document.getElementById("curCoinLab").innerHTML = "当前余额: " + vee.User.coin;
+    }
 }
 
 function loginEvent(){
     // alert("登录成功,刷新用户信息");
+    // var url = "index.php?uid=" + vee.User.phone;
+    // window.location.href = url;
     showInfoDiv();
 }
 
@@ -266,18 +303,35 @@ function getSign(content){
 
 function checkParame() {
     var urlInfo = window.location.href;
-    var len = urlInfo.length;
-    var offset = urlInfo.indexOf("?");
-    var paramInfo = urlInfo.substr(offset+1, len);
-    var paramList = paramInfo.split("=");
+    // var len = urlInfo.length;
+    // var offset = urlInfo.indexOf("?");
+    // var paramInfo = urlInfo.substr(offset+1, len);
+    // var paramList = paramInfo.split("=");
+    var paramList = getParamListByUrl(urlInfo);
+    var firstParam = getParamValueByParamList(paramList, 0);
 
-    if("phoneAction" == paramList[0]){
-        if("regist" == paramList[1]){
+    if("phoneAction" == firstParam["key"]){
+        if("regist" == firstParam["value"]){
             showRegistDiv();
         }
-        else if("pay" == paramList[1]){
+        else if("pay" == firstParam["value"]){
             showPayDiv();
         }
+    }
+    else if("uid" == firstParam["key"]){
+        vee.User.phone = firstParam["value"];
+        var secondParam = getParamValueByParamList(paramList, 1);
+        vee.User.psw = secondParam["value"];
+        Flow.do(vee.User.FlowLogin).onResult(
+            function (result) {
+                if(result){
+                    alert(result);
+                }
+                else{
+                    loginEvent();
+                }
+            }.bind(this)
+        ).go();
     }
 }
 
