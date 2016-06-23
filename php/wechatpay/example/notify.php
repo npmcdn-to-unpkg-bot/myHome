@@ -131,14 +131,11 @@ class PayNotifyCallBack extends WxPayNotify
 		$tradeNo = $data["out_trade_no"];	//支付单号
 		$total = $data["total_fee"];		//支付金额
 		$timeEnd= $data["time_end"];		//支付完成时间
-		if($total == "1"){
+		if($total == "500"){
 			$vcoin = 50;
 		}
 		elseif ($total == "1000"){
 			$vcoin = 120;
-		}
-		else{
-			$vcoin = 1;
 		}
 		// Log::DEBUG("total====".$total);
 		$data = array("uid" => $uid, "tradeNo" => $tradeNo, "total" => $total, "time" => $timeEnd, "vcoin" => $vcoin);

@@ -23,16 +23,12 @@ if(!isset($_GET["uid"])){
 $tmpUid = $_GET["uid"];
 $firebase = new \Firebase\FirebaseLib(DEFAULT_URL, DEFAULT_TOKEN);
 $oldCoin = $firebase->get("/users/" . $tmpUid . "/coin");
-$newCoin = $oldCoin;
-//$newCoin = $oldCoin;
 
 //$firebase->set("/users/15377935280/coin", $oldCoin+1);
 
 function getCodeUrl($total){
     $uid = $_GET["uid"];
     if(null == $uid) return;
-    global $firebase;
-    $newCoin = $firebase->get("/users/" . $uid . "/coin");
 
     $notify = new NativePay();
     $input = new WxPayUnifiedOrder();
@@ -68,26 +64,22 @@ function getCodeUrl($total){
     <script type="text/javascript" src="static/script/pay.js"></script>
 
     <script type="text/javascript">
-        var oldCoin = 0;
         function showTime(){
-            $.ajax({
-                type : "get",
-                url: "result.php?action=getcoin&uid=15377935280",
-                cache: false,
-                success: function(data){
-                    if(data > oldCoin){
-                        oldCoin = data;
-                        document.getElementById('curCoinLab').innerHTML = '当前余额: ' + data;
-                        showDiv('paySuccess');
-                    }
+            <?php
+//                $firebase->set("users/".$tmpUid."/coin", 200);  //debug
+                $newCoin = $firebase->get("/users/" . $tmpUid . "/coin");
+                if($newCoin > $oldCoin){
+                    $oldCoin = $newCoin;
+                    echo "alert('充值成功')";
+//                    echo "showDiv('paySuccess')";
                 }
-            })
+                else{
+//                    echo "alert('充值未成功')";
+                }
+            ?>
         }
-
-
         function reloadFunc() {
-            oldCoin = <?php echo $oldCoin?>;
-            setInterval("showTime()", 3000);
+            window.setInterval("showTime()", 3000);
         }
         window.onload = reloadFunc();
     </script>
@@ -95,18 +87,12 @@ function getCodeUrl($total){
 </head>
 <body>
 
-    <div id="payImg" class="payView">
+    <div class="payView">
         <div>
             <img alt="扫码支付" src="php/wechatpay/example/qrcode.php?data=<?php echo urlencode(getCodeUrl("1"));?>" style="width:240px;height:240px;"/>
             <br><br><br>
-            <img src="static/image/home/btn_charge_5.png"/>
+            <img src="static/image/home/btn_charge_5.png"">
         </div>
-
-        <br>
-<!--        <div>-->
-<!--            <img src="static/image/home/btn_charge_5.png" onclick="return payTest()">-->
-<!--        </div>-->
-
 
     </div>
 
@@ -116,12 +102,11 @@ function getCodeUrl($total){
         <div class="payView">
             <div>
                 <img src="static/image/home/image_pay_success.png"/><br>
-                <p id="curCoinLab">当前余额:&nbsp<?php $newCoin?></p>
+                <p>当前余额:&nbsp<?php $newCoin?></p>
             </div>
             <br>
             <div>
-<!--                <img src="static/image/home/btn_pay_ok.png" onclick="return gohome()"/>-->
-                <a href="supercat://open"><img src="static/image/home/btn_pay_ok.png"/></a>
+                <img src="static/image/home/btn_pay_ok.png" onclick="return gohome()"/>
             </div>
 
         </div>
