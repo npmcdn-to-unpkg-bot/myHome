@@ -24,6 +24,8 @@ $tmpUid = $_GET["uid"];
 $firebase = new \Firebase\FirebaseLib(DEFAULT_URL, DEFAULT_TOKEN);
 $oldCoin = $firebase->get("/users/" . $tmpUid . "/coin");
 $newCoin = $oldCoin;
+
+$tradeNo = WxPayConfig::MCHID.date("YmdHis");
 //$newCoin = $oldCoin;
 
 //$firebase->set("/users/15377935280/coin", $oldCoin+1);
@@ -31,14 +33,14 @@ $newCoin = $oldCoin;
 function getCodeUrl($total){
     $uid = $_GET["uid"];
     if(null == $uid) return;
-    global $firebase;
+    global $firebase, $tradeNo;
     $newCoin = $firebase->get("/users/" . $uid . "/coin");
 
     $notify = new NativePay();
     $input = new WxPayUnifiedOrder();
     $input->SetBody("veewo V币购买");
     $input->SetAttach($uid);
-    $tradeNo = WxPayConfig::MCHID.date("YmdHis");
+//    $tradeNo = WxPayConfig::MCHID.date("YmdHis");
     $input->SetOut_trade_no($tradeNo);
     $input->SetTotal_fee($total);
     $input->SetTime_start(date("YmdHis"));
@@ -72,18 +74,34 @@ function getCodeUrl($total){
         function showTime(){
             $.ajax({
                 type : "get",
-                url: "result.php?action=getcoin&uid=15377935280",
+//                url: "result.php?action=checkpay&uid="+"<?php //echo $tmpUid ?>//"+"&oid="+"<?php //echo $tradeNo ?>//",
+                url: "result.php?action=checkpay&uid="+"<?php echo $tmpUid ?>"+"&oid="+"<?php echo $tradeNo ?>",
                 cache: false,
                 success: function(data){
-                    if(data > oldCoin){
-                        oldCoin = data;
-                        document.getElementById('curCoinLab').innerHTML = '当前余额: ' + data;
-                        showDiv('paySuccess');
+                    if(data != "fail"){
+//                        if(data > oldCoin){
+                            oldCoin = data;
+                            document.getElementById('curCoinLab').innerHTML = '当前余额: ' + data;
+                            showDiv('paySuccess');
+//                        }
                     }
                 }
             })
         }
 
+//        function payTest(){
+//            $.ajax({
+//                type : "get",
+////                url: "result.php?action=checkpay&uid="+"<?php ////echo $tmpUid ?>////"+"&oid="+"<?php ////echo $tradeNo ?>////",
+//                url: "result.php?action=checkpay&uid=15377935280&paytest=1"+"&oid="+"<?php //echo $tradeNo ?>//",
+//                cache: false,
+//                success: function(data){
+//                    if(data != "fail"){
+//                        alert(data);
+//                    }
+//                }
+//            })
+//        }
 
         function reloadFunc() {
             oldCoin = <?php echo $oldCoin?>;
@@ -97,16 +115,17 @@ function getCodeUrl($total){
 
     <div id="payImg" class="payView">
         <div>
-            <img alt="扫码支付" src="php/wechatpay/example/qrcode.php?data=<?php echo urlencode(getCodeUrl("1"));?>" style="width:240px;height:240px;"/>
+            <img alt="扫码支付" src="php/wechatpay/example/qrcode.php?data=<?php echo urlencode(getCodeUrl("500"));?>" style="width:240px;height:240px;"/>
             <br><br><br>
-            <img src="static/image/home/btn_charge_5.png"/>
+            <a href="<?php echo urlencode(getCodeUrl("500"));?>"> <img src="static/image/home/btn_charge_5.png"/> </a>
         </div>
 
         <br>
-<!--        <div>-->
-<!--            <img src="static/image/home/btn_charge_5.png" onclick="return payTest()">-->
-<!--        </div>-->
-
+        <!--
+        <div>
+            <img src="static/image/home/btn_charge_5.png" onclick="return payTest()">
+        </div>
+           -->
 
     </div>
 
