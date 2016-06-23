@@ -1,4 +1,3 @@
-
 <?php
 /**
  * Created by PhpStorm.
@@ -24,17 +23,28 @@ const DEFAULT_PATH = '/orders';
 
 $action = $_GET["action"];
 
-if($action == "getcoin"){
+if($action == "checkpay"){
     $uid = $_GET["uid"];
+    $orderId = $_GET["oid"];
     $firebase = new \Firebase\FirebaseLib(DEFAULT_URL, DEFAULT_TOKEN);
-    $newCoin = $firebase->get("/users/" . $uid . "/coin");
+//    $newCoin = $firebase->get("/users/" . $uid . "/coin");
+    $result = $firebase->get(DEFAULT_PATH . "/" . $orderId);
+
     if(isset($_GET["paytest"])){
-        $result = $firebase->set("/users/" . $uid . "/coin", $newCoin + 10);
-        echo $result;
+        $data = array("time"=>"20160623185748", "total"=>"1", "tradeNo"=>$orderId, "uid"=>$uid, "vcoin"=>50);
+        $test = $firebase->set(DEFAULT_PATH . '/' . $orderId, $data);
+        echo $test;
     }
-    else{
+    else if($result && $result != "null"){
+        $newCoin = $firebase->get("/users/" . $uid . "/coin");
         echo $newCoin;
     }
+    else{
+        echo "fail";
+    }
+//    else{
+//        echo $newCoin;
+//    }
 }
 
 
